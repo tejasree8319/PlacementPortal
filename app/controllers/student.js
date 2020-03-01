@@ -39,7 +39,7 @@ const getAllStudents=(req,res)=>{
 };
 
 
-const pick=body=>_.pick(body,['studentName','studentGender','studentDob','studentDept','studentEmail','studentContact','studentAddress']);
+const pick=body=>_.pick(body,['studentName','studentGender','studentDob','studentDept','studentEmail','studentContact','studentTempAddress','studentBTechMarks']);
  
 
 // Find note and update it with the request body
@@ -106,7 +106,16 @@ const createStudent = async (req,res)=>{
         studentGender: req.body.studentGender,
         studentDob: req.body.studentDob,
         studentDept: req.body.studentDept,
-        studentAddress: req.body.studentAddress
+        studentTempAddress: req.body.studentTempAddress,
+        studentPermanentAddress: req.body.studentPermanentAddress,
+      //  studentCity: req.body.studentCity,
+      //  studentState: req.body.studentState,
+     //   studentPincode: req.body.studentPincode,
+        studentBatch: req.body.studentBatch,
+        studentSSCMarks: req.body.studentSSCMarks,
+        studentInterMarks: req.body.studentInterMarks,
+        studentDiplomaMarks: req.body.studentDiplomaMarks,
+        studentBTechMarks: req.body.studentBTechMarks,
     });
     
     // Save Note in the database

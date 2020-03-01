@@ -38,7 +38,7 @@ const getAllFaculty=(req,res)=>{
 });
 };
 
-const pick=body=>_.pick(body,['facultyName','facultyGender','facultyExperience','facultyDept','facultyEmail','facultyContact','facultyAddress']);
+const pick=body=>_.pick(body,['facultyName','facultyGender','facultyExperience','facultyDept','facultyEmail','facultyContact','facultyDesignation']);
 
 // Find note and update it with the request body
 const updateFaculty=(req,res)=>{
@@ -99,12 +99,13 @@ const createFaculty = async (req,res)=>{
          const faculty = new Faculty({
             facultyId: req.body.facultyId,
             facultyName: req.body.facultyName,
-            facultyEmail: req.body.facultytEmail,
+            facultyEmail: req.body.facultyEmail,
             facultyContact: req.body.facultyContact,
             facultyGender: req.body.facultyGender,
+            facultyDesignation: req.body.facultyDesignation,
             facultyExperience: req.body.facultyExperience,
             facultyDept: req.body.facultyDept,
-            facultyAddress: req.body.facultyAddress
+           // facultyAddress: req.body.facultyAddress
             });
     
     // Save Note in the database

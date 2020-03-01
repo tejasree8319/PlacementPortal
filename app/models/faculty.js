@@ -10,9 +10,9 @@ const facultySchema = new Schema({
   facultyEmail: String,
   facultyContact: Number,
   facultyGender: String,
+  facultyDesignation: String,
   facultyExperience: Number,
   facultyDept: String,
-  facultyAddress: String,
   
 });
 module.exports=mongoose.model('Faculty',facultySchema);

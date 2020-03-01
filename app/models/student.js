@@ -12,7 +12,15 @@ const studentSchema = new Schema({
   studentGender: String,
   studentDob: Date,
   studentDept: String,
-  studentAddress: String,
-  
+  studentTempAddress: String,
+  studentPermanentAddress: String,
+  //studentCity: String,
+  //studentState: String,
+  //studentPincode: Number,
+  studentBatch: Number,
+  studentSSCMarks: Number,
+  studentInterMarks: Number,
+  studentDiplomaMarks: Number,
+  studentBTechMarks: Number,
 });
 module.exports=mongoose.model('Student',studentSchema);
