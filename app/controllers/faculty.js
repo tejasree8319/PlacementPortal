@@ -12,29 +12,32 @@ const getFaculty=(req,res)=>{
 
 // Create a Note
 
-const createFaculty = (req,res)=>{
-    const faculty = new Student({
-        facultyId: req.body.studentId,
-        facultyName: req.body.studentName,
-        facultyEmail: req.body.studentEmail,
-        facultyContact: req.body.studentContact,
-        facultyGender: req.body.studentGender,
-        facultyExperience: req.body.studentDob,
-        facultyDept: req.body.studentDept,
-        facultyAddress: req.body.studentAddress
-    });
+const createFaculty = async (req,res)=>{
+    try{
+         const faculty = new Faculty({
+            facultyId: req.body.facultyId,
+            facultyName: req.body.facultyName,
+            facultyEmail: req.body.facultytEmail,
+            facultyContact: req.body.facultyContact,
+            facultyGender: req.body.facultyGender,
+            facultyExperience: req.body.facultyExperience,
+            facultyDept: req.body.facultyDept,
+            facultyAddress: req.body.facultyAddress
+            });
     
     // Save Note in the database
-    faculty.save()
-    .then(data => {
+    const data = await faculty.save();
+    // faculty.save()
+    // .then(data => {
         res.send(data);
-    }).catch(err => {
+    }
+    catch(err) {
+  
         res.status(500).send({
-            message: err.message || "Some error occurred while creating the Note."
+            message: err.message || "Some error occurred while creating the Faculty."
         });
-    });
     
-    res.send("Data");
+}
 };
 
 

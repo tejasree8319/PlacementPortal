@@ -6,22 +6,23 @@ const _=require('lodash');
 console.log("Execute");
 
 const getStudent = (req,res)=>{
-    Student.findById(req.params.studentId)
-    .then(id => {
-        if(!id) {
+    const studentId =req.params.studentId
+    Student.findOne({studentId})
+    .then(student => {
+        if(!student) {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.studentId
+                message: "Student not found with id " + req.params.studentId
             });            
         }
-        res.send(id)
+        res.send(student)
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.studentId
+                message: "Student not found with id " + req.params.studentId
             });                
         }
         return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.studentId
+            message: "Error retrieving student with id " + req.params.studentId
         });
     });
 };
@@ -38,60 +39,65 @@ const getAllStudents=(req,res)=>{
 };
 
 
-const pick=body=>_.pick(body,['qestudentName','studentGender','studentDob','studentDept']);
+const pick=body=>_.pick(body,['studentName','studentGender','studentDob','studentDept']);
  
 
 // Find note and update it with the request body
   const updateStudent=(req,res)=>{
+      console.log("contl");
     console.log(Object.keys(req.body))
     
     console.log(pick);
-  Student.findByIdAndUpdate(req.params.studentId,
+    const studentId = req.params.studentId;
+  Student.findOneAndUpdate({studentId},
       pick(req.body),
-      {new: true})
+      {new: true}
+      )
 .then(id => {
     if(!id) {
         return res.status(404).send({
-            message: "Note not found with id " + req.params.studentId
+            message: "Student not found with id " + req.params.studentId
         });
     }
     res.send(id);
 }).catch(err => {
     if(err.kind === 'ObjectId') {
         return res.status(404).send({
-            message: "Note not found with id " + req.params.studentId
+            message: "Student not found with id " + req.params.studentId
         });                
     }
     return res.status(500).send({
-        message: "Error updating note with id " + req.params.studentId
+        message: "Error updating student with id " + req.params.studentId
     });
 });
 };
 
 const deleteStudent = (req, res) => {
-    Student.findByIdAndRemove(req.params.studentId)
+    const studentId = req.params.studentId;
+    Student.findOneAndRemove({studentId})
     .then(id => {
         if(!id) {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.studentId
+                message: "Student not found with id " + req.params.studentId
             });
         }
-        res.send({message: "Data deleted successfully!"});
+        res.send({message: "Student deleted successfully!"});
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.studentId
+                message: "Student not found with id " + req.params.studentId
             });                
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.studentId
+            message: "Could not delete student with id " + req.params.studentId
         });
     });
 };
 
 // Create a Note
 
-const createStudent = (req,res)=>{
+const createStudent = async (req,res)=>{
+    try{
     const student = new Student({
         studentId: req.body.studentId,
         studentName: req.body.studentName,
@@ -104,16 +110,24 @@ const createStudent = (req,res)=>{
     });
     
     // Save Note in the database
-    student.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while creating the Note."
-        });
-    });
+    const data = await student.save()
+    // .then(data => {
+    //     res.send(data);
+    // }).catch(err => {
+    //     res.status(500).send({
+    //         message: err.message || "Some error occurred while creating the Student."
+    //     });
+    // });
     
-    res.send("Data");
+    res.send(data);
+}
+catch(err) {
+  
+        res.status(500).send({
+            message: err.message || "Some error occurred while creating the Student."
+        });
+    
+}
 };
 
 studentRouter.get('/all',getAllStudents)
