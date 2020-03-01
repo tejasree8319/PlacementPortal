@@ -1,30 +1,10 @@
 {
 	"info": {
-		"_postman_id": "bad959ea-0134-4acc-954a-922cd05390e0",
+		"_postman_id": "71b4d298-1ad0-4829-bc41-6453417314cb",
 		"name": "PlacementPortal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "http://localhost:8000/student/all",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/student/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"student",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "http://localhost:8000/student/?studentId=11",
 			"request": {
@@ -145,6 +125,189 @@
 					"port": "8000",
 					"path": [
 						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/faculty",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"facultyId\": \"25\",\n\t\"facultyName\": \"Thukaram\",\n\t\"facultyEmail\": \"mthuku@gmail.com\",\n\t\"facultyContact\": \"8341452563\",\n\t\"facultyGender\": \"M\",\n\t\"facultyExperience\": \"8\",\n\t\"facultyDept\": \"IT\",\n\t\"facultyAddress\": \"Balnagar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/faculty",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"faculty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/student/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"facultyId\": \"25\",\n\t\"facultyName\": \"Thukaram\",\n\t\"facultyEmail\": \"mthuku@gmail.com\",\n\t\"facultyContact\": \"8341452563\",\n\t\"facultyGender\": \"M\",\n\t\"facultyExperience\": \"8\",\n\t\"facultyDept\": \"IT\",\n\t\"facultyAddress\": \"Balnagar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/faculty",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"faculty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/faculty/all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/faculty/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"faculty",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/faculty/21",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/faculty/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"faculty",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/faculty/21",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"facultyAddress\": \"Narsapur\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/faculty/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"faculty",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/faculty/21",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/faculty/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"faculty",
+						"21"
 					]
 				}
 			},
