@@ -39,7 +39,7 @@ const getAllStudents=(req,res)=>{
 };
 
 
-const pick=body=>_.pick(body,['studentName','studentGender','studentDob','studentDept']);
+const pick=body=>_.pick(body,['studentName','studentGender','studentDob','studentDept','studentEmail','studentContact','studentAddress']);
  
 
 // Find note and update it with the request body
