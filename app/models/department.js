@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
  
-const deptSchema = new Schema({
-    deptName: String
+const departmentSchema = new Schema({
+    departmentName: String
 });
 
-module.exports=mongoose.model('Department',deptSchema);
+module.exports=mongoose.model('Department',departmentSchema);
 
