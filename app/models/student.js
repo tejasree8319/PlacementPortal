@@ -17,7 +17,7 @@ const studentSchema = new Schema({
   //studentCity: String,
   //studentState: String,
   //studentPincode: Number,
-  studentBatch: Number,
+  studentBatch: String,
   studentSSCMarks: Number,
   studentInterMarks: Number,
   studentDiplomaMarks: Number,

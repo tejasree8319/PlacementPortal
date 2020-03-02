@@ -21,7 +21,7 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-const port=8080;
+const port=8000;
 
 var route=require('./app/routes');
 
