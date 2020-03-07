@@ -5,7 +5,7 @@ const ObjectId = Schema.ObjectId;
 
  
 const facultySchema = new Schema({
-  facultyId: Number,
+  facultyId: String,
   facultyName: String,
   facultyEmail: String,
   facultyContact: Number,

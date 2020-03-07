@@ -5,7 +5,7 @@ const ObjectId = Schema.ObjectId;
 
  
 const studentSchema = new Schema({
-  studentId: Number,
+  studentId: String,
   studentName: String,
   studentEmail: String,
   studentContact: Number,
@@ -22,6 +22,5 @@ const studentSchema = new Schema({
   studentInterMarks: Number,
   studentDiplomaMarks: Number,
   studentBTechMarks: Number,
-  studentPassword: String
 });
 module.exports=mongoose.model('Student',studentSchema);

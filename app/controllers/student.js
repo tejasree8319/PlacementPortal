@@ -117,8 +117,7 @@ const createStudent = async (req,res)=>{
         studentSSCMarks: req.body.studentSSCMarks,
         studentInterMarks: req.body.studentInterMarks,
         studentDiplomaMarks: req.body.studentDiplomaMarks,
-        studentBTechMarks: req.body.studentBTechMarks,
-        studentPassword: req.body.studentPassword
+        studentBTechMarks: req.body.studentBTechMarks
     });
     
     // Save Note in the database
