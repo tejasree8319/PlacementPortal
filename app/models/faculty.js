@@ -13,6 +13,7 @@ const facultySchema = new Schema({
   facultyDesignation: String,
   facultyExperience: Number,
   facultyDept: String,
+  facultyQualification: String
   
 });
 module.exports=mongoose.model('Faculty',facultySchema);

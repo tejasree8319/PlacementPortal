@@ -105,6 +105,7 @@ const createFaculty = async (req,res)=>{
             facultyDesignation: req.body.facultyDesignation,
             facultyExperience: req.body.facultyExperience,
             facultyDept: req.body.facultyDept,
+            facultyQualification: req.body.facultyQualification
            // facultyAddress: req.body.facultyAddress
             });
     

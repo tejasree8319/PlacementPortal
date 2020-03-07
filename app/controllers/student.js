@@ -94,6 +94,8 @@ const deleteStudent = (req, res) => {
     });
 };
 
+
+
 // Create a Note
 
 const createStudent = async (req,res)=>{
@@ -116,6 +118,7 @@ const createStudent = async (req,res)=>{
         studentInterMarks: req.body.studentInterMarks,
         studentDiplomaMarks: req.body.studentDiplomaMarks,
         studentBTechMarks: req.body.studentBTechMarks,
+        studentPassword: req.body.studentPassword
     });
     
     // Save Note in the database
