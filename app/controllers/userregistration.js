@@ -1,6 +1,6 @@
 const express=require("express");
-var userLoginRouter = express.Router();
-const User = require('../models/userlogin');
+var userRegisterRouter = express.Router();
+const User = require('../models/userregistration');
 const _=require('lodash');
 console.log("Execute");
 
@@ -23,7 +23,7 @@ const createUser = async (req,res)=>{
 catch(err) {
   
         res.status(500).send({
-            message: err.message || "Some error occurred while creating the UserLogin."
+            message: err.message || "Some error occurred while creating the UserRegistration."
         });
     
 }
@@ -66,4 +66,4 @@ userLoginRouter.post('/',createUser)
 userLoginRouter.patch('/:userId',updateUserDetails)
 
 
-module.exports = userLoginRouter;
+module.exports = userRegisterRouter;

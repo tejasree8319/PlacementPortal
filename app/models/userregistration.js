@@ -1,18 +1,17 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const _=require('lodash');
 
-const userLoginSchema = new Schema({
+const userRegisterSchema = new Schema({
     userId:{type: String, unique : true},
     password: {type :String,required :true},
     userType: {type :String,required :true}
 });
 
-userLoginSchema.methods = {
+userRegisterSchema.methods = {
     // Generating jwt after creating a user and after login
     async generateAuthToken() {
       const token = jwt.sign({ _id: this._id.toHexString(), userId: this.userId }, "tokencode", {
@@ -35,7 +34,7 @@ userLoginSchema.methods = {
 //hashing a password before saving it to the database
 console.log("Hash");
 
-userLoginSchema.pre('save', function(next) {
+userRegisterSchema.pre('save', function(next) {
     if (this.isModified('password')) {
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
@@ -51,4 +50,4 @@ userLoginSchema.pre('save', function(next) {
   
 
 
-module.exports=mongoose.model('UserLogin',userLoginSchema);
+module.exports=mongoose.model('UserRegistration',userRegisterSchema);
