@@ -9,7 +9,8 @@ const studentJobsSchema = new Schema({
     jobId: String,
     appliedStatus: String,
     selectedStatus: String,
-    eligibilityStatus: String
+    eligibilityStatus: String,
+    academicYear: String
 });
 
 module.exports=mongoose.model('StudentJobs',studentJobsSchema);

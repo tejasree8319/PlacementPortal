@@ -6,8 +6,7 @@ var facultyRouter=require('./controllers/faculty');
 var departmentRouter=require('./controllers/department');
 var jobRouter=require('./controllers/job');
 var companyRouter=require('./controllers/company');
-var studentLoginRouter=require('./controllers/studentlogin');
-var facultyLoginRouter=require('./controllers/facultylogin');
+var userLoginRouter=require('./controllers/userlogin');
 var studentJobsRouter=require('./controllers/studentjobs');
 
 
@@ -16,8 +15,7 @@ router.use('/faculty',facultyRouter);
 router.use('/department',departmentRouter);
 router.use('/job',jobRouter);
 router.use('/company',companyRouter);
-router.use('/studentlogin',studentLoginRouter);
-router.use('/facultylogin',facultyLoginRouter);
+router.use('/userlogin',userLoginRouter);
 router.use('/studentjobs',studentJobsRouter);
 
 module.exports=router;

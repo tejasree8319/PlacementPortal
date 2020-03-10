@@ -10,7 +10,8 @@ const createStudentJobs = async (req,res)=>{
         jobId: req.body.jobId,
         appliedStatus: req.body.appliedStatus,
         selectedStatus: req.body.selectedStatus,
-        eligibilityStatus: req.body.eligibilityStatus
+        eligibilityStatus: req.body.eligibilityStatus,
+        academicYear: req.body.academicYear
     });
 
     const data = await student.save()
@@ -113,11 +114,11 @@ const deleteStudentJob = (req, res) => {
     });
 };
 
-studentRouter.get('/all',getAllStudentJobs)
-studentRouter.get('/:studentId',getStudentJobs)
-studentRouter.post('/',createStudentJobs)
-studentRouter.patch('/:studentId',updateStudentJob)
-studentRouter.delete('/:studentId',deleteStudentJob)
+studentJobsRouter.get('/all',getAllStudentJobs)
+studentJobsRouter.get('/:studentId',getStudentJobs)
+studentJobsRouter.post('/',createStudentJobs)
+studentJobsRouter.patch('/:studentId',updateStudentJob)
+studentJobsRouter.delete('/:studentId',deleteStudentJob)
 
 
 module.exports = studentJobsRouter;

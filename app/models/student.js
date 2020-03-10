@@ -21,6 +21,6 @@ const studentSchema = new Schema({
   studentSSCMarks: Number,
   studentInterMarks: Number,
   studentDiplomaMarks: Number,
-  studentBTechMarks: Number,
+  studentBTechMarks: Number
 });
 module.exports=mongoose.model('Student',studentSchema);

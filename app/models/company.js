@@ -9,6 +9,7 @@ const companySchema = new Schema({
     companyName: String,
     companyDescription: String,
     companySelectionProcess: String,
-    companyRecruited: Number
+    companyRecruited: Number,
+    companySector: String
 });
 module.exports=mongoose.model('Company',companySchema);

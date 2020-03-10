@@ -12,7 +12,8 @@ const createCompany = async (req,res)=>{
         companyName: req.body.companyName,
         companyDescription: req.body.companyDescription,
         companySelectionProcess: req.body.companySelectionProcess,
-        companyRecruited: req.body.companyRecruited
+        companyRecruited: req.body.companyRecruited,
+        companySector: req.body.companySector
     });
 
     const data = await company.save()
