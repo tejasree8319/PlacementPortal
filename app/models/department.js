@@ -5,7 +5,9 @@ const ObjectId = Schema.ObjectId;
 
  
 const departmentSchema = new Schema({
-    departmentName: String
+    departmentName: {
+        type:String
+    }
 });
 
 module.exports=mongoose.model('Department',departmentSchema);

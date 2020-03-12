@@ -5,12 +5,27 @@ const ObjectId = Schema.ObjectId;
 
  
 const studentJobsSchema = new Schema({
-    studentId: String,
-    jobId: String,
-    appliedStatus: String,
-    selectedStatus: String,
-    eligibilityStatus: String,
-    academicYear: String
+    studentId: {
+        type:String,
+        unique:true,
+        required:true
+    },
+    jobId: {
+        type:String
+    },
+    appliedStatus: {
+        type:String
+    },
+    selectedStatus: {
+        type:String
+    },
+    eligibilityStatus: {
+        type:String
+    },
+    academicYear: {
+        type:String,
+        required:true
+    }
 });
 
 module.exports=mongoose.model('StudentJobs',studentJobsSchema);

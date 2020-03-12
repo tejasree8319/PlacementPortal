@@ -105,8 +105,10 @@ const createFaculty = async (req,res)=>{
             facultyDesignation: req.body.facultyDesignation,
             facultyExperience: req.body.facultyExperience,
             facultyDept: req.body.facultyDept,
-            facultyQualification: req.body.facultyQualification
+            facultyQualification: req.body.facultyQualification,
            // facultyAddress: req.body.facultyAddress
+            facultyPhoto: req.body.facultyPhoto,
+            facultyResume: req.body.facultyResume 
             });
     
     // Save Note in the database

@@ -62,8 +62,8 @@ User.findOneAndUpdate({userId},
 
 
 
-userLoginRouter.post('/',createUser)
-userLoginRouter.patch('/:userId',updateUserDetails)
+userRegisterRouter.post('/',createUser)
+userRegisterRouter.patch('/:userId',updateUserDetails)
 
 
 module.exports = userRegisterRouter;

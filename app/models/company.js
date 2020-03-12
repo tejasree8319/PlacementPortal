@@ -5,11 +5,26 @@ const ObjectId = Schema.ObjectId;
 
  
 const companySchema = new Schema({
-    companyId: Number,
-    companyName: String,
-    companyDescription: String,
-    companySelectionProcess: String,
-    companyRecruited: Number,
-    companySector: String
+    companyId: {
+        type:Number,
+        required:true,
+        unique:true
+    },
+    companyName: {
+        type:String,
+    },
+    companyDescription: {
+        type:String
+    },
+    companySelectionProcess: {
+        type:String
+    },
+    companyRecruited: {
+        type:Number
+    },
+    companySector: {
+        type:String,
+        required:true
+    }
 });
 module.exports=mongoose.model('Company',companySchema);

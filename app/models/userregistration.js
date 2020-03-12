@@ -30,7 +30,21 @@ userRegisterSchema.methods = {
     }
   };
 
-  
+  userRegisterSchema.statistics = {
+  async findByCredentials(userId, password) {
+    const user = await this.findOne({ userId });
+    if (!user) {
+      throw 'User not found';
+    }
+    // Use bcrypt.compare to compare password and user.password
+    if (await bcrypt.compare(password, user.password)) {
+      return user;
+    }
+    throw 'Incorrect Password';
+  }
+};
+
+
 //hashing a password before saving it to the database
 console.log("Hash");
 

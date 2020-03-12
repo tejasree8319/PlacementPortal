@@ -8,6 +8,7 @@ var jobRouter=require('./controllers/job');
 var companyRouter=require('./controllers/company');
 var userRegisterRouter=require('./controllers/userregistration');
 var studentJobsRouter=require('./controllers/studentjobs');
+var loginRouter=require('./controllers/userlogin');
 
 
 router.use('/student',studentRouter);
@@ -17,5 +18,6 @@ router.use('/job',jobRouter);
 router.use('/company',companyRouter);
 router.use('/userregistration',userRegisterRouter);
 router.use('/studentjobs',studentJobsRouter);
+router.use('/userlogin',loginRouter);
 
 module.exports=router;
