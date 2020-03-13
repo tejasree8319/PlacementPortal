@@ -17,9 +17,9 @@ router.use('/faculty',facultyRouter);
 router.use('/department',departmentRouter);
 router.use('/job',jobRouter);
 router.use('/company',companyRouter);
-router.use('/userregistration',registerRouter);
+router.use('/register',registerRouter);
 router.use('/studentjobs',studentJobsRouter);
-router.use('/userlogin',loginRouter);
+router.use('/login',loginRouter);
 router.use('/feedback',feedbackRouter);
 router.use('/trainings',trainingRouter);
 
