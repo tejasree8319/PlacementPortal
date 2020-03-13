@@ -1,6 +1,6 @@
 const express=require("express");
-var userRegisterRouter = express.Router();
-const User = require('../models/userregistration');
+var registerRouter = express.Router();
+const User = require('../models/User');
 const _=require('lodash');
 console.log("Execute");
 
@@ -62,8 +62,8 @@ User.findOneAndUpdate({userId},
 
 
 
-userRegisterRouter.post('/',createUser)
-userRegisterRouter.patch('/:userId',updateUserDetails)
+registerRouter.post('/',createUser)
+registerRouter.patch('/:userId',updateUserDetails)
 
 
-module.exports = userRegisterRouter;
+module.exports = registerRouter;

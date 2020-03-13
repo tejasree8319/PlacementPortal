@@ -1,6 +1,6 @@
 const express=require("express");
 var trainingRouter = express.Router();
-const StudentTraining = require('../models/studenttraining');
+const StudentTraining = require('../models/Trainings');
 const _=require('lodash');
 
 console.log("Trainings");

@@ -1,6 +1,6 @@
 const express=require("express");
 var feedbackRouter = express.Router();
-const StudentFeedback = require('../models/feedback');
+const StudentFeedback = require('../models/Feedback');
 
 console.log("Feedback");
 

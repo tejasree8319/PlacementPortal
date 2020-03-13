@@ -1,6 +1,6 @@
 const express=require("express");
 var studentRouter = express.Router();
-const Student = require('../models/student');
+const Student = require('../models/Student');
 const _=require('lodash');
 
 console.log("Execute");

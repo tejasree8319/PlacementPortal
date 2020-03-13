@@ -1,6 +1,6 @@
 const express=require("express");
 var studentJobsRouter = express.Router();
-const StudentJobs = require('../models/studentjobs');
+const StudentJobs = require('../models/Studentjobs');
 const _=require('lodash');
 
 const createStudentJobs = async (req,res)=>{

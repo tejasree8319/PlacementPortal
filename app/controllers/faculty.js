@@ -1,6 +1,6 @@
 const express=require("express");
 var facultyRouter = express.Router();
-const Faculty = require('../models/faculty');
+const Faculty = require('../models/Faculty');
 const _=require('lodash');
 
 console.log("Execute");

@@ -1,6 +1,6 @@
 const express=require("express");
 var companyRouter = express.Router();
-const Company = require('../models/company');
+const Company = require('../models/Company');
 const _=require('lodash');
 
 console.log("Execute");
