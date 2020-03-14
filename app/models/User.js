@@ -34,7 +34,7 @@ userSchema.methods = {
   }
 };
 
-userSchema.statistics = {
+userSchema.statics = {
   async findByCredentials(userId, password) {
     const user = await this.findOne({ userId });
     if (!user) {

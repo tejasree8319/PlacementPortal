@@ -13,7 +13,7 @@ const login = async (req, res) => {
   try {
     const { userId, password } = req.body;
     const userDetails = await User.findByCredentials(userId, password);
-    //const tenantConfig = await Tenant.find({ _id: userDetails.tenant }, { _id: 0, name: 1, contact: 1, tLogo: 1 });
+    const { userType } = userDetails;
     const token = await userDetails.generateAuthToken();
     res.send({ data: { user: userId, userType, token } });
   } catch (err) {
@@ -21,7 +21,6 @@ const login = async (req, res) => {
   }
 };
 
-//const pick = userDetails => _.pick(userDetails, ['username', 'userPhoto']);
 loginRouter.post('/', login);
 
 module.exports = loginRouter;
