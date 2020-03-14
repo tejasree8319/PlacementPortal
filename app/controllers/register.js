@@ -13,11 +13,10 @@ const createUser = async (req, res) => {
     });
     console.log('Username');
 
+    const data = await user.save();
+
     const token = await user.generateAuthToken();
     res.send({ data: { user: user.removeUnwantedFields() }, token });
-
-    const data = await user.save();
-    res.send(data);
   } catch (err) {
     res.status(500).send({
       message:
