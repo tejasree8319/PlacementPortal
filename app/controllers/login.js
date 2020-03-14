@@ -1,10 +1,10 @@
 //const _ = require('lodash');
 //const Tenant = require('../models/Tenant/Configuration');
-const express=require("express");
+const express = require('express');
 const User = require('../models/User');
 const loginRouter = express.Router();
 
-console.log("Execute");
+console.log('Execute');
 
 /**
  * User Login
@@ -23,6 +23,5 @@ const login = async (req, res) => {
 
 //const pick = userDetails => _.pick(userDetails, ['username', 'userPhoto']);
 loginRouter.post('/', login);
-
 
 module.exports = loginRouter;

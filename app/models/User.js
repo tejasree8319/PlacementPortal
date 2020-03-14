@@ -1,36 +1,40 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const _=require('lodash');
+const _ = require('lodash');
 
-const userRegisterSchema = new Schema({
-    userId:{type: String, unique : true},
-    password: {type :String,required :true},
-    userType: {type :String,required :true}
+const userSchema = new Schema({
+  userId: { type: String, unique: true },
+  password: { type: String, required: true },
+  userType: { type: String, required: true }
 });
 
-userRegisterSchema.methods = {
-    // Generating jwt after creating a user and after login
-    async generateAuthToken() {
-      const token = jwt.sign({ _id: this._id.toHexString(), userId: this.userId }, "tokencode", {
+userSchema.methods = {
+  // Generating jwt after creating a user and after login
+  async generateAuthToken() {
+    const token = jwt.sign(
+      { _id: this._id.toHexString(), userId: this.userId },
+      'tokencode',
+      {
         expiresIn: '30d'
-      });
-  
-      await this.updateOne({
-        $push: {
-          tokens: token
-        }
-      });
-      return token;
-    },
-    removeUnwantedFields() {
-      return _.omit(this.toObject(), ['password', 'tokens', '__v']);
-    }
-  };
+      }
+    );
 
-  userRegisterSchema.statistics = {
+    await this.updateOne({
+      $push: {
+        tokens: token
+      }
+    });
+    return token;
+  },
+  removeUnwantedFields() {
+    return _.omit(this.toObject(), ['password', 'tokens', '__v']);
+  }
+};
+
+userSchema.statistics = {
   async findByCredentials(userId, password) {
     const user = await this.findOne({ userId });
     if (!user) {
@@ -44,24 +48,20 @@ userRegisterSchema.methods = {
   }
 };
 
-
 //hashing a password before saving it to the database
-console.log("Hash");
+console.log('Hash');
 
-userRegisterSchema.pre('save', function(next) {
-    if (this.isModified('password')) {
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(this.password, salt, (err, hash) => {
-          this.password = hash;
-          next();
-        });
+userSchema.pre('save', function(next) {
+  if (this.isModified('password')) {
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(this.password, salt, (err, hash) => {
+        this.password = hash;
+        next();
       });
-    } else {
-      next();
-    }
-  });
-  
-  
+    });
+  } else {
+    next();
+  }
+});
 
-
-module.exports=mongoose.model('UserRegistration',userRegisterSchema);
+module.exports = mongoose.model('User', userSchema);
