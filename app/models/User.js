@@ -5,11 +5,14 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
-const userSchema = new Schema({
-  userId: { type: String, unique: true },
-  password: { type: String, required: true },
-  userType: { type: String, required: true }
-});
+const userSchema = new Schema(
+  {
+    userId: { type: String, unique: true },
+    password: { type: String, required: true },
+    userType: { type: String, required: true }
+  },
+  { timestamps: true }
+);
 
 userSchema.methods = {
   // Generating jwt after creating a user and after login
