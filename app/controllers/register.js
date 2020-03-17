@@ -14,7 +14,7 @@ const createUser = async (req, res) => {
     console.log('Username');
 
     const data = await user.save();
-
+    console.log(user);
     const token = await user.generateAuthToken();
     res.send({ data: { user: user.removeUnwantedFields() }, token });
   } catch (err) {
@@ -28,7 +28,7 @@ const createUser = async (req, res) => {
 
 const pick = body => _.pick(body, ['password', 'userType']);
 
-const updateUserDetails = (req, res) => {
+const updateUserDetails = async (req, res) => {
   console.log('contl');
   console.log(Object.keys(req.body));
 
@@ -41,9 +41,15 @@ const updateUserDetails = (req, res) => {
           message: 'User not found with id ' + req.params.userId
         });
       }
-      res.send(id);
+      const token = id.generateAuthToken();
+
+      res.send({ data: { user: id.removeUnwantedFields() }, token });
+      //res.send(id);
     })
+
     .catch(err => {
+      console.log(err);
+
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
           message: 'User not found with id ' + req.params.userId

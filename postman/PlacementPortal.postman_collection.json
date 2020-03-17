@@ -1,102 +1,12 @@
 {
 	"info": {
-		"_postman_id": "71b4d298-1ad0-4829-bc41-6453417314cb",
+		"_postman_id": "ef730d6d-b3a9-430c-aea4-ccb014f1881b",
 		"name": "PlacementPortal",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8000/student/?studentId=11",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8000/student/11",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"student",
-						"11"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/student/11",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"studentName\": \"pavuani\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/student/11",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"student",
-						"11"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/student/11",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8000/student/11",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"student",
-						"11"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/student",
+			"name": "Register",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -109,7 +19,94 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"studentId\": 11,\n\"studentName\": \"Teju\",\n\"studentEmail\": \"tej6567@gmail.com\",\n\"studentcontact\": 7992676617,\n\"studentGender\": \"Female\",\n\"studentDob\": \"1998-03-08\",\n\"studentDept\": \"IT\",\n\"studentAddress\": \"KPHB\"\n}",
+					"raw": "{\n    \"userId\": \"12A\",\n    \"password\": \"342\",\n    \"userType\": \"Faculty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n\t\"userType\" :\"Faculty\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/register/1B",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						"1B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": \"12A\",\n\t\"password\": \"342\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student-Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentId\": \"16211A12C0\",\n\t\"studentName\": \"Bhavana\",\n\t\"studentEmail\": \"vuttur@gmail.com\",\n\t\"studentContact\": 8282890854,\n\t\"studentGender\": \"F\",\n\t\"studentDob\": \"1999-03-22\",\n\t\"studentDept\": \"IT\",\n\t\"studentTempAddress\": \"HYD\",\n\t\"studentPermanentAddress\": \"Nizamabad\",\n\t\"studentBatch\": \"2016-2020\",\n\t\"studentSSCMarks\": 92,\n\t\"studentInterMarks\": 95,\n\t\"studentDiplomaMarks\": 0,\n\t\"studentBTechMarks\": 90,\n\t\"studentResume\": \"sjnadjhdj\",\n\t\"studentPhoto\": \"gnh.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -131,244 +128,39 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/faculty",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"facultyId\": \"25\",\n\t\"facultyName\": \"Thukaram\",\n\t\"facultyEmail\": \"mthuku@gmail.com\",\n\t\"facultyContact\": \"8341452563\",\n\t\"facultyGender\": \"M\",\n\t\"facultyExperience\": \"8\",\n\t\"facultyDept\": \"IT\",\n\t\"facultyAddress\": \"Balnagar\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/faculty",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"faculty"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/student/all",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"facultyId\": \"25\",\n\t\"facultyName\": \"Thukaram\",\n\t\"facultyEmail\": \"mthuku@gmail.com\",\n\t\"facultyContact\": \"8341452563\",\n\t\"facultyGender\": \"M\",\n\t\"facultyExperience\": \"8\",\n\t\"facultyDept\": \"IT\",\n\t\"facultyAddress\": \"Balnagar\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/faculty",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"faculty"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/faculty/all",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/faculty/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"faculty",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/faculty/21",
+			"name": "Student-getById",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/faculty/21",
+					"raw": "http://localhost:8000/student/16211A12A0",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
 					"path": [
-						"faculty",
-						"21"
+						"student",
+						"16211A12A0"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/faculty/21",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"facultyAddress\": \"Narsapur\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/faculty/21",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"faculty",
-						"21"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/faculty/21",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/faculty/21",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"faculty",
-						"21"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/department",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"departmentName\": \"EEE\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/department",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"department"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/department/all",
+			"name": "Student-getAll",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/department/all",
+					"raw": "http://localhost:8000/student/all",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
 					"path": [
-						"department",
+						"student",
 						"all"
 					]
 				}
@@ -376,7 +168,56 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/job",
+			"name": "Student-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentContact\": \"9441567908\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/student/16211A12C0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"student",
+						"16211A12C0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/student/16211A12A0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"student",
+						"16211A12A0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faculty-Create",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -389,7 +230,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"jobId\": \"1\",\n    \"jobProfile\": \"Trainee\",\n    \"jobSkills\": \"C\",\n    \"jobDescription\": \"\",\n    \"jobEligibility\": \"8\",\n    \"jobPackage\": \"3.6\",\n    \"jobLocation\": \"Hyderabad\",\n    \"jobDate\": \"08-03-2020\",\n    \"jobDept\": \"CSE,IT\",\n    \"jobType\": \"FTE\"\n}",
+					"raw": "{\n\t\"facultyId\": \"25\",\n\t\"facultyName\": \"Thukaram\",\n\t\"facultyEmail\": \"mthuku@gmail.com\",\n\t\"facultyContact\": \"8341452563\",\n\t\"facultyGender\": \"M\",\n\t\"facultyDesignation\" : \"TPC\",\n\t\"facultyExperience\": 8,\n\t\"facultyDept\": \"IT\",\n\t\"facultyQualification\": \"M.Tech\",\n\t\"facultyPhoto\": \"thuk.jpg\",\n\t\"facultyResume\": \"snkjwqi\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -397,12 +238,136 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/job",
+					"raw": "http://localhost:8000/faculty",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
+					"path": [
+						"faculty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faculty-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/faculty/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"faculty",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faculty-getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/faculty/25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"faculty",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faculty-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"facultyExperience\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/faculty/25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"faculty",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faculty-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/faculty/26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"faculty",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Job-Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"jobId\": \"3\",\n    \"jobProfile\": \"Trainee\",\n    \"jobSkills\": \"C\",\n    \"jobDescription\": \"www.jobs.com\",\n    \"jobEligibility\": \"8\",\n    \"jobPackage\": \"3.6\",\n    \"jobLocation\": \"Hyderabad\",\n    \"jobDate\": \"08-03-2020\",\n    \"jobDept\": \"CSE,IT\",\n    \"jobType\": \"FTE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/job",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
 					"path": [
 						"job"
 					]
@@ -411,7 +376,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/job/all",
+			"name": "Job-getAll",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -423,12 +388,12 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/job/all",
+					"raw": "http://localhost:8000/job/all",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
 					"path": [
 						"job",
 						"all"
@@ -438,7 +403,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/job/3",
+			"name": "Job-getById",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -450,12 +415,12 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/job/3",
+					"raw": "http://localhost:8000/job/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
 					"path": [
 						"job",
 						"3"
@@ -465,20 +430,13 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/job/1",
+			"name": "Job-Update",
 			"request": {
 				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"jobType\": \"Intern\"\n}",
+					"raw": "{\n\t\"jobPackage\" : 5\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -486,22 +444,22 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/job/1",
+					"raw": "http://localhost:8000/job/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
 					"path": [
 						"job",
-						"1"
+						"3"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/job/1",
+			"name": "Job-Delete",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -513,12 +471,12 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/job/1",
+					"raw": "http://localhost:8000/job/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8000",
 					"path": [
 						"job",
 						"1"
@@ -528,7 +486,55 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/company",
+			"name": "Department-Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"departmentName\": \"CSE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/department",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"department"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Department-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/department/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"department",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Company-Create",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -541,7 +547,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"companyId\": \"501\",\n\t\"companyName\": \"OpenText\",\n\t\"companyDescription\": \"\",\n\t\"companySelectionProcess\": \"Written,TR,HR\",\n\t\"companyRecruited\": \"2\"\n}",
+					"raw": "{\n\t\"companyId\": \"501\",\n\t\"companyName\": \"OpenText\",\n\t\"companyDescription\": \"\",\n\t\"companySelectionProcess\": \"Written,TR,HR\",\n\t\"companyRecruited\": \"2\",\n\t\"companySector\": \"IT\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -563,17 +569,10 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/company/all",
+			"name": "Company-getAll",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
 					"raw": "http://localhost:8000/company/all",
 					"protocol": "http",
@@ -590,53 +589,10 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/company/505",
+			"name": "Company-getById",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8000/company/505",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"company",
-						"505"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8000/company/501",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"companyRecruited\": \"25\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
+				"header": [],
 				"url": {
 					"raw": "http://localhost:8000/company/501",
 					"protocol": "http",
@@ -653,17 +609,19 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/company/505",
+			"name": "Company-Update",
 			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"companyRecruited\": 24\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
 					}
-				],
+				},
 				"url": {
 					"raw": "http://localhost:8000/company/505",
 					"protocol": "http",
@@ -674,6 +632,377 @@
 					"path": [
 						"company",
 						"505"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Company-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/company/501",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"company",
+						"501"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Placement-Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentId\": \"16211A12C0\",\n\t\"jobId\" : \"3\",\n\t\"appliedStatus\": \"Done\",\n\t\"selectedStatus\": \"Processing\",\n\t\"eligibilityStatus\": \"B.TECH\",\n\t\"academicYear\" : \"2019-2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/placement",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"placement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Placement-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/placement/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"placement",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Placement-getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/placement/16211A1290",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"placement",
+						"16211A1290"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Placement-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"selectedStatus\": \"Yes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/placement/16211A1290",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"placement",
+						"16211A1290"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Placement-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/placement/16211A12C0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"placement",
+						"16211A12C0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trainings-Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentId\":\"16211A1290\",\n\t\"trainingType\": \"CapGemini\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/trainings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trainings-getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/trainings/16211A1290",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings",
+						"16211A1290"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trainings-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/trainings/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trainings-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"trainingType\": \"CRT,CapGemini\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/trainings/16211A12C0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings",
+						"16211A12C0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trainings-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/trainings/16211A1290",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings",
+						"16211A1290"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback-Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentId\" : \"16211A12C0\",\n\t\"jobId\" : \"3\",\n\t\"studentFeedback\" : \"Basics\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback-getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/feedback/16211A1290",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"feedback",
+						"16211A1290"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback-getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/feedback/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"feedback",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentFeedback\" : \"Difficult\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/feedback/16211A12C0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"feedback",
+						"16211A12C0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/feedback/16211A1290",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"feedback",
+						"16211A1290"
 					]
 				}
 			},

@@ -108,6 +108,8 @@ const deleteStudent = (req, res) => {
 
 const createStudent = async (req, res) => {
   try {
+    console.log(req.body.studentDob);
+
     const student = new Student({
       studentId: req.body.studentId,
       studentName: req.body.studentName,

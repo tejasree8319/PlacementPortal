@@ -1,12 +1,13 @@
 const express = require('express');
 var feedbackRouter = express.Router();
 const StudentFeedback = require('../models/Feedback');
+const _ = require('lodash');
 
 console.log('Feedback');
 
 const createStudentFeedback = async (req, res) => {
   try {
-    const studentFeedback = new Student({
+    const studentFeedback = new StudentFeedback({
       studentId: req.body.studentId,
       jobId: req.body.jobId,
       studentFeedback: req.body.studentFeedback
@@ -59,7 +60,7 @@ const getAllStudentsFeedback = (req, res) => {
     });
 };
 
-const pick = body => _.pick(body, ['studentId', 'studentFeedback', 'jobId']);
+const pick = body => _.pick(body, ['studentFeedback', 'jobId']);
 
 // Find note and update it with the request body
 const updateStudentFeedback = (req, res) => {

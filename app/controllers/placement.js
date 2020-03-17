@@ -26,7 +26,7 @@ const createPlacement = async (req, res) => {
 
 const getPlacement = (req, res) => {
   const studentId = req.params.studentId;
-  Student.findOne({ studentId })
+  Placements.findOne({ studentId })
     .then(student => {
       if (!student) {
         return res.status(404).send({
@@ -48,7 +48,7 @@ const getPlacement = (req, res) => {
 };
 
 const getAllPlacements = (req, res) => {
-  Student.find()
+  Placements.find()
     .then(studentData => {
       res.send(studentData);
     })
@@ -74,7 +74,7 @@ const updatePlacement = (req, res) => {
 
   console.log(pick);
   const studentId = req.params.studentId;
-  Student.findOneAndUpdate({ studentId }, pick(req.body), { new: true })
+  Placements.findOneAndUpdate({ studentId }, pick(req.body), { new: true })
     .then(id => {
       if (!id) {
         return res.status(404).send({
@@ -97,7 +97,7 @@ const updatePlacement = (req, res) => {
 
 const deletePlacement = (req, res) => {
   const studentId = req.params.studentId;
-  Student.findOneAndRemove({ studentId })
+  Placements.findOneAndRemove({ studentId })
     .then(id => {
       if (!id) {
         return res.status(404).send({

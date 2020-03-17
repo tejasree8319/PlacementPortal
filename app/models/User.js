@@ -33,7 +33,12 @@ userSchema.methods = {
     return token;
   },
   removeUnwantedFields() {
-    return _.omit(this.toObject(), ['password', 'tokens', '__v']);
+    return _.omit(this.toObject(), [
+      'password',
+      '__v',
+      'createdAt',
+      'updatedAt'
+    ]);
   }
 };
 
