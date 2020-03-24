@@ -5,7 +5,8 @@ const ObjectId = Schema.ObjectId;
 const TrainingSchema = new Schema(
   {
     studentId: {
-      type: String
+      type: ObjectId,
+      ref: 'Student'
     },
     trainingType: {
       type: String
@@ -13,12 +14,12 @@ const TrainingSchema = new Schema(
   },
   { timestamps: true }
 );
-// TrainingSchema.pre('findOne', function() {
-//   console.log('entered here');
-//   this.populate({ path: 'studentId', select: 'studentId-_id' });
-// });
-// TrainingSchema.pre('find', function() {
-//   this.populate({ path: 'studentId', select: 'studentId-_id' });
-// });
+TrainingSchema.pre('findOne', function() {
+  console.log('entered here');
+  this.populate({ path: 'studentId', select: 'studentId-_id' });
+});
+TrainingSchema.pre('find', function() {
+  this.populate({ path: 'studentId', select: 'studentId-_id' });
+});
 
 module.exports = mongoose.model('Trainings', TrainingSchema);
