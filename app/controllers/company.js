@@ -11,8 +11,8 @@ const createCompany = async (req, res) => {
       companyId: req.body.companyId,
       companyName: req.body.companyName,
       companyDescription: req.body.companyDescription,
-      companySelectionProcess: req.body.companySelectionProcess,
-      companyRecruited: req.body.companyRecruited,
+      // companySelectionProcess: req.body.companySelectionProcess,
+      // //companyRecruited: req.body.companyRecruited,
       companySector: req.body.companySector
     });
 

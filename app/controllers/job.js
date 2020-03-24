@@ -11,12 +11,15 @@ const createJob = async (req, res) => {
       jobId: req.body.jobId,
       jobProfile: req.body.jobProfile,
       jobSkills: req.body.jobSkills,
+      selectedCount: req.body.selectedCount,
+      jobSelectionProcess: req.body.jobSelectionProcess,
       jobDescription: req.body.jobDescription,
       jobEligibility: req.body.jobEligibility,
       jobPackage: req.body.jobPackage,
+      interviewLocation: req.body.interviewLocation,
       jobLocation: req.body.jobLocation,
       jobDate: req.body.jobDate,
-      jobDept: req.body.jobDept,
+      //jobDept: req.body.jobDept,
       jobType: req.body.jobType
     });
 

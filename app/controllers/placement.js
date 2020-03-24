@@ -7,10 +7,8 @@ const createPlacement = async (req, res) => {
   try {
     const student = new Placements({
       studentId: req.body.studentId,
+      companyId: req.body.companyId,
       jobId: req.body.jobId,
-      appliedStatus: req.body.appliedStatus,
-      selectedStatus: req.body.selectedStatus,
-      eligibilityStatus: req.body.eligibilityStatus,
       academicYear: req.body.academicYear
     });
 
@@ -48,8 +46,11 @@ const getPlacement = (req, res) => {
 };
 
 const getAllPlacements = (req, res) => {
-  Placements.find()
+  const academicYear = req.params.academicYear;
+
+  Placements.find({ academicYear })
     .then(studentData => {
+      // console.log(studentData);
       res.send(studentData);
     })
     .catch(err => {
@@ -60,21 +61,17 @@ const getAllPlacements = (req, res) => {
     });
 };
 
-const pick = body =>
-  _.pick(body, [
-    'jobId',
-    'selectionStatus',
-    'appliedStatus',
-    'eligibilityStatus'
-  ]);
+const pick = body => _.pick(body, ['jobId', 'companyId', 'academicYear']);
 
 const updatePlacement = (req, res) => {
-  console.log('contl');
-  console.log(Object.keys(req.body));
+  // console.log('contl');
+  // console.log(req.params.studentId);
 
-  console.log(pick);
-  const studentId = req.params.studentId;
-  Placements.findOneAndUpdate({ studentId }, pick(req.body), { new: true })
+  // console.log(pick);
+  const placementId = req.params.placementId;
+  Placements.findOneAndUpdate({ _id: placementId }, pick(req.body), {
+    new: true
+  })
     .then(id => {
       if (!id) {
         return res.status(404).send({
@@ -118,10 +115,10 @@ const deletePlacement = (req, res) => {
     });
 };
 
-placementsRouter.get('/all', getAllPlacements);
+placementsRouter.get('/all/:academicYear', getAllPlacements);
 placementsRouter.get('/:studentId', getPlacement);
 placementsRouter.post('/', createPlacement);
-placementsRouter.patch('/:studentId', updatePlacement);
+placementsRouter.patch('/:placementId', updatePlacement);
 placementsRouter.delete('/:studentId', deletePlacement);
 
 module.exports = placementsRouter;

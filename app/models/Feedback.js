@@ -2,14 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-const studentFeedbackSchema = new Schema(
+const FeedbackSchema = new Schema(
   {
     studentId: {
-      type: String,
+      type: ObjectId,
+      ref: 'Student',
       required: true
     },
     jobId: {
-      type: String,
+      type: ObjectId,
+      ref: 'Job',
       required: true
     },
     studentFeedback: {
@@ -18,5 +20,12 @@ const studentFeedbackSchema = new Schema(
   },
   { timestamps: true }
 );
-
-module.exports = mongoose.model('Feedback', studentFeedbackSchema);
+FeedbackSchema.pre('findOne', function() {
+  //console.log('entered here');
+  this.populate({ path: 'studentId', select: 'studentId-_id' });
+});
+FeedbackSchema.pre('findOne', function() {
+  //console.log('entered here');
+  this.populate({ path: 'jobId', select: 'jobId-_id' });
+});
+module.exports = mongoose.model('Feedback', FeedbackSchema);

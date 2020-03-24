@@ -29,8 +29,11 @@ const getStudent = (req, res) => {
 };
 
 const getAllStudents = (req, res) => {
+  //console.log('Student List');
   Student.find()
+
     .then(studentData => {
+      // console.log(studentData);
       res.send(studentData);
     })
     .catch(err => {

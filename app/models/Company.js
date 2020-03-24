@@ -16,12 +16,12 @@ const companySchema = new Schema(
     companyDescription: {
       type: String
     },
-    companySelectionProcess: {
-      type: String
-    },
-    companyRecruited: {
-      type: Number
-    },
+    // companySelectionProcess: {
+    //   type: String
+    // },
+    // companyRecruited: {
+    //   type: Number
+    // },
     companySector: {
       type: String,
       required: true

@@ -29,8 +29,10 @@ const getFaculty = (req, res) => {
 };
 
 const getAllFaculty = (req, res) => {
+  // console.log('Faculty List');
   Faculty.find()
     .then(facultyData => {
+      // console.log(facultyData);
       res.send(facultyData);
     })
     .catch(err => {

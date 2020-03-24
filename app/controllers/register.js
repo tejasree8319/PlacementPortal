@@ -1,22 +1,40 @@
 const express = require('express');
 var registerRouter = express.Router();
 const User = require('../models/User');
+const Student = require('../models/Student');
+const Faculty = require('../models/Faculty');
 const _ = require('lodash');
 console.log('Execute');
 
 const createUser = async (req, res) => {
   try {
+    const userId = req.body.userId;
+    const userType = req.body.userType;
+    //console.log(req.body);
     const user = new User({
       userId: req.body.userId,
       password: req.body.password,
       userType: req.body.userType
     });
-    console.log('Username');
+    //console.log(user);
 
     const data = await user.save();
     console.log(user);
     const token = await user.generateAuthToken();
-    res.send({ data: { user: user.removeUnwantedFields() }, token });
+    //const response = { user: userId, userType, token };
+
+    if (userType == 'Student') {
+      const student = new Student({
+        studentId: userId
+      });
+      const id = await student.save();
+    } else {
+      const faculty = new Faculty({
+        facultyId: userId
+      });
+      const id = await faculty.save();
+    }
+    res.send({ userId, userType, token });
   } catch (err) {
     res.status(500).send({
       message:
@@ -43,7 +61,7 @@ const updateUserDetails = async (req, res) => {
       }
       const token = id.generateAuthToken();
 
-      res.send({ data: { user: id.removeUnwantedFields() }, token });
+      res.send({ user: id.removeUnwantedFields() }, token);
       //res.send(id);
     })
 
