@@ -53,7 +53,14 @@ const pick = body =>
     'studentEmail',
     'studentContact',
     'studentTempAddress',
-    'studentBTechMarks'
+    'studentPermanentAddress',
+    'studentBatch',
+    'studentSSCMarks',
+    'studentInterMarks',
+    'studentDiplomaMarks',
+    'studentBTechMarks',
+    'studentResume',
+    'studentPhoto'
   ]);
 
 // Find note and update it with the request body

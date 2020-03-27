@@ -51,7 +51,10 @@ const pick = body =>
     'facultyDept',
     'facultyEmail',
     'facultyContact',
-    'facultyDesignation'
+    'facultyDesignation',
+    'facultyQualification',
+    'facultyPhoto',
+    'facultyResume'
   ]);
 
 // Find note and update it with the request body

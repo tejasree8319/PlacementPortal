@@ -50,7 +50,7 @@ const getAllPlacements = (req, res) => {
 
   Placements.find({ academicYear })
     .then(studentData => {
-      // console.log(studentData);
+      console.log(studentData);
       res.send(studentData);
     })
     .catch(err => {
