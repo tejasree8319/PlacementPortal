@@ -15,7 +15,7 @@ const login = async (req, res) => {
     const userDetails = await User.findByCredentials(userId, password);
     const { userType } = userDetails;
     const token = await userDetails.generateAuthToken();
-    res.send({ user: userId, userType, token });
+    res.send({ userId, userType, token });
   } catch (err) {
     res.status(400).send(JSON.stringify(err, ['stack'], 4));
   }

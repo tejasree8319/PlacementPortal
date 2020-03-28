@@ -60,8 +60,8 @@ const updateUserDetails = async (req, res) => {
         });
       }
       const token = id.generateAuthToken();
-
-      res.send({ user: id.removeUnwantedFields() }, token);
+      // res.send({ data: { user: id.removeUnwantedFields() }, token });
+      res.send('Updated successfully');
       //res.send(id);
     })
 

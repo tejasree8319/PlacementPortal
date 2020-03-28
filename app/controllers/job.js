@@ -8,9 +8,9 @@ console.log('Execute');
 const createJob = async (req, res) => {
   try {
     const job = new Job({
-      jobId: req.body.jobId,
       jobProfile: req.body.jobProfile,
       jobSkills: req.body.jobSkills,
+      companyId: req.body.companyId,
       selectedCount: req.body.selectedCount,
       jobSelectionProcess: req.body.jobSelectionProcess,
       jobDescription: req.body.jobDescription,
@@ -19,7 +19,6 @@ const createJob = async (req, res) => {
       interviewLocation: req.body.interviewLocation,
       jobLocation: req.body.jobLocation,
       jobDate: req.body.jobDate,
-      //jobDept: req.body.jobDept,
       jobType: req.body.jobType
     });
 
@@ -34,7 +33,7 @@ const createJob = async (req, res) => {
 
 const getJob = (req, res) => {
   const jobId = req.params.jobId;
-  Job.findOne({ jobId })
+  Job.findOne({ _id: jobId })
     .then(job => {
       if (!job) {
         return res.status(404).send({
@@ -76,7 +75,6 @@ const pick = body =>
     'jobPackage',
     'jobLocation',
     'jobDate',
-    'jobDept',
     'jobType'
   ]);
 
@@ -87,7 +85,7 @@ const updateJob = (req, res) => {
 
   console.log(pick);
   const jobId = req.params.jobId;
-  Job.findOneAndUpdate({ jobId }, pick(req.body), { new: true })
+  Job.findOneAndUpdate({ _id: jobId }, pick(req.body), { new: true })
     .then(id => {
       if (!id) {
         return res.status(404).send({
@@ -110,7 +108,7 @@ const updateJob = (req, res) => {
 
 const deleteJob = (req, res) => {
   const jobId = req.params.jobId;
-  Job.findOneAndRemove({ jobId })
+  Job.findOneAndRemove({ _id: jobId })
     .then(id => {
       if (!id) {
         return res.status(404).send({

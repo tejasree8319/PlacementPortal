@@ -25,7 +25,7 @@ const createStudentTraining = async (req, res) => {
 
 const getStudentTraining = (req, res) => {
   const studentId = req.params.studentId;
-  StudentTraining.findOne({ studentId })
+  StudentTraining.findOne({ _id: studentId })
     .then(student => {
       if (!student) {
         return res.status(404).send({
@@ -68,7 +68,9 @@ const updateStudentTraining = (req, res) => {
 
   console.log(pick);
   const studentId = req.params.studentId;
-  StudentTraining.findOneAndUpdate({ studentId }, pick(req.body), { new: true })
+  StudentTraining.findOneAndUpdate({ _id: studentId }, pick(req.body), {
+    new: true
+  })
     .then(id => {
       if (!id) {
         return res.status(404).send({
@@ -91,7 +93,7 @@ const updateStudentTraining = (req, res) => {
 
 const deleteStudentTraining = (req, res) => {
   const studentId = req.params.studentId;
-  StudentTraining.findOneAndRemove({ studentId })
+  StudentTraining.findOneAndRemove({ _id: studentId })
     .then(id => {
       if (!id) {
         return res.status(404).send({

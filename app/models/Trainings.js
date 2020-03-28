@@ -16,10 +16,10 @@ const TrainingSchema = new Schema(
 );
 TrainingSchema.pre('findOne', function() {
   console.log('entered here');
-  this.populate({ path: 'studentId', select: 'studentId-_id' });
+  this.populate({ path: 'studentId' });
 });
 TrainingSchema.pre('find', function() {
-  this.populate({ path: 'studentId', select: 'studentId-_id' });
+  this.populate({ path: 'studentId' });
 });
 
 module.exports = mongoose.model('Trainings', TrainingSchema);

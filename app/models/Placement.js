@@ -27,10 +27,10 @@ const PlacementSchema = new Schema(
   { timestamps: true }
 );
 PlacementSchema.pre('findOne', function() {
-  this.populate({ path: 'studentId', select: 'studentId-_id' });
+  this.populate({ path: 'studentId' });
 });
 PlacementSchema.pre('find', function() {
-  this.populate({ path: 'studentId', select: 'studentId-_id' });
+  this.populate({ path: 'studentId' });
 });
 PlacementSchema.pre('findOne', function() {
   // console.log('entered here');

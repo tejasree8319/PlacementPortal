@@ -8,11 +8,8 @@ console.log('Execute');
 const createCompany = async (req, res) => {
   try {
     const company = new Company({
-      companyId: req.body.companyId,
       companyName: req.body.companyName,
       companyDescription: req.body.companyDescription,
-      // companySelectionProcess: req.body.companySelectionProcess,
-      // //companyRecruited: req.body.companyRecruited,
       companySector: req.body.companySector
     });
 
@@ -27,7 +24,7 @@ const createCompany = async (req, res) => {
 
 const getCompany = (req, res) => {
   const companyId = req.params.companyId;
-  Company.findOne({ companyId })
+  Company.findOne({ _id: companyId })
     .then(company => {
       if (!company) {
         return res.status(404).send({
@@ -62,12 +59,7 @@ const getAllCompanies = (req, res) => {
 };
 
 const pick = body =>
-  _.pick(body, [
-    'companyName',
-    'companyDescription',
-    'companySelectionProcess',
-    'companyRecruited'
-  ]);
+  _.pick(body, ['companyName', 'companyDescription', 'companySector']);
 
 // Find note and update it with the request body
 const updateCompany = (req, res) => {
@@ -76,7 +68,7 @@ const updateCompany = (req, res) => {
 
   console.log(pick);
   const companyId = req.params.companyId;
-  Company.findOneAndUpdate({ companyId }, pick(req.body), { new: true })
+  Company.findOneAndUpdate({ _id: companyId }, pick(req.body), { new: true })
     .then(id => {
       if (!id) {
         return res.status(404).send({
@@ -99,7 +91,7 @@ const updateCompany = (req, res) => {
 
 const deleteCompany = (req, res) => {
   const companyId = req.params.companyId;
-  Company.findOneAndRemove({ companyId })
+  Company.findOneAndRemove({ _id: companyId })
     .then(id => {
       if (!id) {
         return res.status(404).send({

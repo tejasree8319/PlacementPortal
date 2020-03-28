@@ -22,10 +22,19 @@ const FeedbackSchema = new Schema(
 );
 FeedbackSchema.pre('findOne', function() {
   //console.log('entered here');
-  this.populate({ path: 'studentId', select: 'studentId-_id' });
+  this.populate({ path: 'studentId' });
 });
+FeedbackSchema.pre('find', function() {
+  //console.log('entered here');
+  this.populate({ path: 'studentId' });
+});
+
 FeedbackSchema.pre('findOne', function() {
   //console.log('entered here');
-  this.populate({ path: 'jobId', select: 'jobId-_id' });
+  this.populate({ path: 'jobId' });
+});
+FeedbackSchema.pre('find', function() {
+  //console.log('entered here');
+  this.populate({ path: 'jobId' });
 });
 module.exports = mongoose.model('Feedback', FeedbackSchema);

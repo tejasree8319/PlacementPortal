@@ -5,12 +5,6 @@ const ObjectId = Schema.ObjectId;
 
 const jobSchema = new Schema(
   {
-    jobId: {
-      type: ObjectId,
-      ref: 'Company',
-      unique: true,
-      required: true
-    },
     jobProfile: {
       type: String,
       required: true
@@ -18,6 +12,10 @@ const jobSchema = new Schema(
     jobSkills: {
       type: String,
       required: true
+    },
+    companyId: {
+      type: ObjectId,
+      ref: 'Company'
     },
     selectedCount: {
       type: Number
@@ -59,9 +57,10 @@ const jobSchema = new Schema(
 );
 jobSchema.pre('findOne', function() {
   console.log('entered here');
-  this.populate({ path: 'jobId', select: 'companyId-_id' });
+  // this.populate({ path: 'companyId', select: 'companyId-_id' });
+  this.populate({ path: 'companyId' });
 });
 jobSchema.pre('find', function() {
-  this.populate({ path: 'jobId', select: 'companyId-_id' });
+  this.populate({ path: 'companyId' });
 });
 module.exports = mongoose.model('Job', jobSchema);

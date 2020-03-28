@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userId\": \"12A\",\n    \"password\": \"342\",\n    \"userType\": \"Faculty\"\n}",
+					"raw": "{\n    \"userId\": \"ME2\",\n    \"password\": \"ce\",\n    \"userType\": \"Faculty\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,10 +54,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\n\t\"userType\" :\"Faculty\"\n}"
+					"raw": "{\n\t\"password\" :\"me\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8000/register/1B",
+					"raw": "http://localhost:8000/register/ME2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -65,7 +65,7 @@
 					"port": "8000",
 					"path": [
 						"register",
-						"1B"
+						"ME2"
 					]
 				}
 			},
@@ -78,7 +78,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"userId\": \"12A\",\n\t\"password\": \"342\"\n}",
+					"raw": "{\n\t\"userId\": \"ME1\",\n\t\"password\": \"me\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -133,7 +133,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/student/16211A12A0",
+					"raw": "http://localhost:8000/student/16211A0535",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,7 +141,7 @@
 					"port": "8000",
 					"path": [
 						"student",
-						"16211A12A0"
+						"16211A0535"
 					]
 				}
 			},
@@ -174,7 +174,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"studentContact\": \"9441567908\"\n}",
+					"raw": "{\n\t\"studentBTechMarks\": 88\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -202,7 +202,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/student/16211A12A0",
+					"raw": "http://localhost:8000/student/16211A1277",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -210,7 +210,7 @@
 					"port": "8000",
 					"path": [
 						"student",
-						"16211A12A0"
+						"16211A1277"
 					]
 				}
 			},
@@ -354,7 +354,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"jobId\": \"3\",\n    \"jobProfile\": \"Trainee\",\n    \"jobSkills\": \"C\",\n    \"jobDescription\": \"www.jobs.com\",\n    \"jobEligibility\": \"8\",\n    \"jobPackage\": \"3.6\",\n    \"jobLocation\": \"Hyderabad\",\n    \"jobDate\": \"08-03-2020\",\n    \"jobDept\": \"CSE,IT\",\n    \"jobType\": \"FTE\"\n}",
+					"raw": "{\n   \"jobProfile\": \"QA\",\n    \"jobSkills\": \"C,JAVA\",\n    \"companyId\": \"5e7f4f53ec9a3549528031bb\",\n    \"selectedCount\": 26,\n    \"jobSelectionProcess\": \"Written,TR,HR\",\n    \"jobDescription\": \"www.jobs.com\",\n    \"jobEligibility\": \"8\",\n    \"jobPackage\": \"3.8\",\n    \"interviewLocation\": \"BVRITN\",\n    \"jobLocation\": \"PAN India\",\n    \"jobDate\": \"08-21-2020\",\n    \"jobType\": \"FTE\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -415,7 +415,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8000/job/3",
+					"raw": "http://localhost:8000/job/5e7f57d79bbb0554d58d927a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -423,7 +423,7 @@
 					"port": "8000",
 					"path": [
 						"job",
-						"3"
+						"5e7f57d79bbb0554d58d927a"
 					]
 				}
 			},
@@ -436,7 +436,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"jobPackage\" : 5\n}",
+					"raw": "{\n\t\"jobSelectionProcess\" : \"Written,TR\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -444,7 +444,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/job/3",
+					"raw": "http://localhost:8000/job/5e7f57d79bbb0554d58d927a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -452,34 +452,7 @@
 					"port": "8000",
 					"path": [
 						"job",
-						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Job-Delete",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8000/job/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"job",
-						"1"
+						"5e7f57d79bbb0554d58d927a"
 					]
 				}
 			},
@@ -492,7 +465,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"departmentName\": \"CSE\"\n}",
+					"raw": "{\n\t\"departmentName\": \"ECE\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -534,6 +507,33 @@
 			"response": []
 		},
 		{
+			"name": "Job-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/job/5e7f57a29bbb0554d58d9279",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"job",
+						"5e7f57a29bbb0554d58d9279"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Company-Create",
 			"request": {
 				"method": "POST",
@@ -547,7 +547,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"companyId\": \"501\",\n\t\"companyName\": \"OpenText\",\n\t\"companyDescription\": \"\",\n\t\"companySelectionProcess\": \"Written,TR,HR\",\n\t\"companyRecruited\": \"2\",\n\t\"companySector\": \"IT\"\n}",
+					"raw": "{\n\t\"companyName\": \"Cap Gemini\",\n\t\"companyDescription\": \"\",\n\t\"companySector\": \"IT\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -594,7 +594,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/company/501",
+					"raw": "http://localhost:8000/company/5e7f4487ec9a3549528031b7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -602,7 +602,7 @@
 					"port": "8000",
 					"path": [
 						"company",
-						"501"
+						"5e7f4487ec9a3549528031b7"
 					]
 				}
 			},
@@ -615,7 +615,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"companyRecruited\": 24\n}",
+					"raw": "{\n\t\"companySector\":\"Core-Engg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -623,7 +623,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/company/505",
+					"raw": "http://localhost:8000/company/5e7f4491ec9a3549528031b8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -631,7 +631,7 @@
 					"port": "8000",
 					"path": [
 						"company",
-						"505"
+						"5e7f4491ec9a3549528031b8"
 					]
 				}
 			},
@@ -643,7 +643,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/company/501",
+					"raw": "http://localhost:8000/company/5e7f4487ec9a3549528031b7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -651,7 +651,7 @@
 					"port": "8000",
 					"path": [
 						"company",
-						"501"
+						"5e7f4487ec9a3549528031b7"
 					]
 				}
 			},
@@ -664,7 +664,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"studentId\": \"16211A12C0\",\n\t\"jobId\" : \"3\",\n\t\"appliedStatus\": \"Done\",\n\t\"selectedStatus\": \"Processing\",\n\t\"eligibilityStatus\": \"B.TECH\",\n\t\"academicYear\" : \"2019-2020\"\n}",
+					"raw": "{\n\t\"studentId\": \"5e7c3cbdd7f24911a77e3a01\",\n\t\"companyId\" : \"5e7f4f3fec9a3549528031ba\",\n\t\"jobId\": \"5e7f581d9bbb0554d58d927b\",\n\t\"academicYear\" : \"2019-2020\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -691,7 +691,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/placement/all",
+					"raw": "http://localhost:8000/placement/all/2017-2018",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -699,7 +699,8 @@
 					"port": "8000",
 					"path": [
 						"placement",
-						"all"
+						"all",
+						"2017-2018"
 					]
 				}
 			},
@@ -711,7 +712,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/placement/16211A1290",
+					"raw": "http://localhost:8000/placement/5e7f5b949bbb0554d58d9282",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -719,7 +720,7 @@
 					"port": "8000",
 					"path": [
 						"placement",
-						"16211A1290"
+						"5e7f5b949bbb0554d58d9282"
 					]
 				}
 			},
@@ -732,7 +733,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"selectedStatus\": \"Yes\"\n}",
+					"raw": "{\n\t\"academicYear\": \"2017-2018\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -740,7 +741,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/placement/16211A1290",
+					"raw": "http://localhost:8000/placement/5e7f5b519bbb0554d58d9281",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -748,7 +749,7 @@
 					"port": "8000",
 					"path": [
 						"placement",
-						"16211A1290"
+						"5e7f5b519bbb0554d58d9281"
 					]
 				}
 			},
@@ -760,7 +761,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/placement/16211A12C0",
+					"raw": "http://localhost:8000/placement/5e7f5af09bbb0554d58d9280",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -768,7 +769,7 @@
 					"port": "8000",
 					"path": [
 						"placement",
-						"16211A12C0"
+						"5e7f5af09bbb0554d58d9280"
 					]
 				}
 			},
@@ -781,7 +782,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"studentId\":\"16211A1290\",\n\t\"trainingType\": \"CapGemini\"\n}",
+					"raw": "{\n\t\"studentId\":\"5e7c3cbdd7f24911a77e3a01\",\n\t\"trainingType\": \"PEGA\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -808,7 +809,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/trainings/16211A1290",
+					"raw": "http://localhost:8000/trainings/5e7f61c2d37b2c5c20987961",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -816,7 +817,7 @@
 					"port": "8000",
 					"path": [
 						"trainings",
-						"16211A1290"
+						"5e7f61c2d37b2c5c20987961"
 					]
 				}
 			},
@@ -849,7 +850,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"trainingType\": \"CRT,CapGemini\"\n}",
+					"raw": "{\n\t\"trainingType\": \"CRT,PEGA\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -857,7 +858,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/trainings/16211A12C0",
+					"raw": "http://localhost:8000/trainings/5e7f61e2d37b2c5c20987962",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -865,7 +866,7 @@
 					"port": "8000",
 					"path": [
 						"trainings",
-						"16211A12C0"
+						"5e7f61e2d37b2c5c20987962"
 					]
 				}
 			},
@@ -877,7 +878,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/trainings/16211A1290",
+					"raw": "http://localhost:8000/trainings/5e7470536977e81ecd00755e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -885,7 +886,7 @@
 					"port": "8000",
 					"path": [
 						"trainings",
-						"16211A1290"
+						"5e7470536977e81ecd00755e"
 					]
 				}
 			},
@@ -898,7 +899,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"studentId\" : \"16211A12C0\",\n\t\"jobId\" : \"3\",\n\t\"studentFeedback\" : \"Basics\"\n}",
+					"raw": "{\n\t\"studentId\" : \"5e7c37eed7f24911a77e39fc\",\n\t\"jobId\" : \"5e7f58f29bbb0554d58d927e\",\n\t\"studentFeedback\" : \"Medium\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -925,7 +926,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/feedback/16211A1290",
+					"raw": "http://localhost:8000/feedback/5e7f632fd37b2c5c20987964",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -933,7 +934,7 @@
 					"port": "8000",
 					"path": [
 						"feedback",
-						"16211A1290"
+						"5e7f632fd37b2c5c20987964"
 					]
 				}
 			},
@@ -974,7 +975,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/feedback/16211A12C0",
+					"raw": "http://localhost:8000/feedback/5e7f632fd37b2c5c20987964",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -982,7 +983,7 @@
 					"port": "8000",
 					"path": [
 						"feedback",
-						"16211A12C0"
+						"5e7f632fd37b2c5c20987964"
 					]
 				}
 			},
@@ -994,7 +995,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/feedback/16211A1290",
+					"raw": "http://localhost:8000/feedback/5e7f630ed37b2c5c20987963",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1002,7 +1003,7 @@
 					"port": "8000",
 					"path": [
 						"feedback",
-						"16211A1290"
+						"5e7f630ed37b2c5c20987963"
 					]
 				}
 			},

@@ -23,12 +23,12 @@ const createPlacement = async (req, res) => {
 };
 
 const getPlacement = (req, res) => {
-  const studentId = req.params.studentId;
-  Placements.findOne({ studentId })
+  const placementId = req.params.placementId;
+  Placements.findOne({ _id: placementId })
     .then(student => {
       if (!student) {
         return res.status(404).send({
-          message: 'Placement not found with id ' + req.params.studentId
+          message: 'Placement not found with id ' + req.params.placementId
         });
       }
       res.send(student);
@@ -36,11 +36,11 @@ const getPlacement = (req, res) => {
     .catch(err => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Placement not found with id ' + req.params.studentId
+          message: 'Placement not found with id ' + req.params.placementId
         });
       }
       return res.status(500).send({
-        message: 'Error retrieving Placement with id ' + req.params.studentId
+        message: 'Error retrieving Placement with id ' + req.params.placementId
       });
     });
 };
@@ -75,7 +75,7 @@ const updatePlacement = (req, res) => {
     .then(id => {
       if (!id) {
         return res.status(404).send({
-          message: 'Placement not found with id ' + req.params.studentId
+          message: 'Placement not found with id ' + req.params.placementId
         });
       }
       res.send(id);
@@ -83,22 +83,22 @@ const updatePlacement = (req, res) => {
     .catch(err => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Placement not found with id ' + req.params.studentId
+          message: 'Placement not found with id ' + req.params.placementId
         });
       }
       return res.status(500).send({
-        message: 'Error updating Placement with id ' + req.params.studentId
+        message: 'Error updating Placement with id ' + req.params.placementId
       });
     });
 };
 
 const deletePlacement = (req, res) => {
-  const studentId = req.params.studentId;
-  Placements.findOneAndRemove({ studentId })
+  const placementId = req.params.placementId;
+  Placements.findOneAndRemove({ _id: placementId })
     .then(id => {
       if (!id) {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.placementId
         });
       }
       res.send({ message: 'Placement deleted successfully!' });
@@ -106,19 +106,19 @@ const deletePlacement = (req, res) => {
     .catch(err => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'Placement not found with id ' + req.params.studentId
+          message: 'Placement not found with id ' + req.params.placementId
         });
       }
       return res.status(500).send({
-        message: 'Could not delete Placement with id ' + req.params.studentId
+        message: 'Could not delete Placement with id ' + req.params.placementId
       });
     });
 };
 
 placementsRouter.get('/all/:academicYear', getAllPlacements);
-placementsRouter.get('/:studentId', getPlacement);
+placementsRouter.get('/:placementId', getPlacement);
 placementsRouter.post('/', createPlacement);
 placementsRouter.patch('/:placementId', updatePlacement);
-placementsRouter.delete('/:studentId', deletePlacement);
+placementsRouter.delete('/:placementId', deletePlacement);
 
 module.exports = placementsRouter;
