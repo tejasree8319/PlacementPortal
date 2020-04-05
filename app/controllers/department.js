@@ -16,14 +16,13 @@ const getAllDepartments = (req, res) => {
 };
 
 const createDepartment = async (req, res) => {
+  console.log(req.body);
   try {
     const department = new Department({
       departmentName: req.body.departmentName
     });
-
-    // Save Note in the database
+    console.log(req.body);
     const data = await department.save();
-
     res.send(data);
   } catch (err) {
     res.status(500).send({

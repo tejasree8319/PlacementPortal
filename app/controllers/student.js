@@ -14,6 +14,7 @@ const getStudent = (req, res) => {
           message: 'Student not found with id ' + req.params.studentId
         });
       }
+      console.log(student);
       res.send(student);
     })
     .catch(err => {

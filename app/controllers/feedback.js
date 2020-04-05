@@ -7,11 +7,13 @@ console.log('Feedback');
 
 const createStudentFeedback = async (req, res) => {
   try {
+    console.log(req.body);
     const studentFeedback = new StudentFeedback({
       studentId: req.body.studentId,
       jobId: req.body.jobId,
       studentFeedback: req.body.studentFeedback
     });
+    console.log(studentFeedback);
 
     const data = await studentFeedback.save();
     res.send(data);

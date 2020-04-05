@@ -18,7 +18,8 @@ const jobSchema = new Schema(
       ref: 'Company'
     },
     selectedCount: {
-      type: Number
+      type: Number,
+      default: 0
     },
     jobSelectionProcess: {
       type: String

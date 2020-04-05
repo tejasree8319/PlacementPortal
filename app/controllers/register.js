@@ -16,14 +16,14 @@ const createUser = async (req, res) => {
       password: req.body.password,
       userType: req.body.userType
     });
-    //console.log(user);
+    console.log(req.body);
 
     const data = await user.save();
-    console.log(user);
+    //console.log(user);
     const token = await user.generateAuthToken();
     //const response = { user: userId, userType, token };
 
-    if (userType == 'Student') {
+    if (userType == 'student') {
       const student = new Student({
         studentId: userId
       });
@@ -34,6 +34,7 @@ const createUser = async (req, res) => {
       });
       const id = await faculty.save();
     }
+    console.log(req.body);
     res.send({ userId, userType, token });
   } catch (err) {
     res.status(500).send({
@@ -44,7 +45,7 @@ const createUser = async (req, res) => {
   }
 };
 
-const pick = body => _.pick(body, ['password', 'userType']);
+const pick = body => _.pick(body, ['password']);
 
 const updateUserDetails = async (req, res) => {
   console.log('contl');

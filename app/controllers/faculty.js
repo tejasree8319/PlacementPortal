@@ -14,6 +14,7 @@ const getFaculty = (req, res) => {
           message: 'Faculty not found with id ' + req.params.facultyId
         });
       }
+      console.log(faculty);
       res.send(faculty);
     })
     .catch(err => {
