@@ -6,15 +6,22 @@ const ObjectId = Schema.ObjectId;
 const companySchema = new Schema(
   {
     companyName: {
-      type: String
+      type: String,
+      required: true,
+      unique: true,
+    },
+    companyLogo: {
+      type: String,
+      required: true,
     },
     companyDescription: {
-      type: String
+      type: String,
+      required: true,
     },
     companySector: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   { timestamps: true }
 );

@@ -9,15 +9,16 @@ const createCompany = async (req, res) => {
   try {
     const company = new Company({
       companyName: req.body.companyName,
+      companyLogo: req.body.companyLogo,
       companyDescription: req.body.companyDescription,
-      companySector: req.body.companySector
+      companySector: req.body.companySector,
     });
 
     const data = await company.save();
     res.send(data);
   } catch (err) {
     res.status(500).send({
-      message: err.message || 'Some error occurred while creating the Company.'
+      message: err.message || 'Some error occurred while creating the Company.',
     });
   }
 };
@@ -25,66 +26,68 @@ const createCompany = async (req, res) => {
 const getCompany = (req, res) => {
   const companyId = req.params.companyId;
   Company.findOne({ _id: companyId })
-    .then(company => {
+    .then((company) => {
       if (!company) {
         return res.status(404).send({
-          message: 'Company not found with id ' + req.params.companyId
+          message: 'Company not found with id ' + req.params.companyId,
         });
       }
       res.send(company);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Company not found with id ' + req.params.companyId
+          message: 'Company not found with id ' + req.params.companyId,
         });
       }
       return res.status(500).send({
-        message: 'Error retrieving company with id ' + req.params.companyId
+        message: 'Error retrieving company with id ' + req.params.companyId,
       });
     });
 };
 
 const getAllCompanies = (req, res) => {
   Company.find()
-    .then(companyData => {
+    .then((companyData) => {
       res.send(companyData);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message:
-          err.message || 'Some error occurred while retrieving company data.'
+          err.message || 'Some error occurred while retrieving company data.',
       });
     });
 };
 
-const pick = body =>
-  _.pick(body, ['companyName', 'companyDescription', 'companySector']);
+const pick = (body) =>
+  _.pick(body, [
+    'companyName',
+    'companyLogo',
+    'companyDescription',
+    'companySector',
+  ]);
 
 // Find note and update it with the request body
 const updateCompany = (req, res) => {
-  console.log('contl');
-  console.log(Object.keys(req.body));
-
   console.log(pick);
   const companyId = req.params.companyId;
   Company.findOneAndUpdate({ _id: companyId }, pick(req.body), { new: true })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Company not found with id ' + req.params.companyId
+          message: 'Company not found with id ' + req.params.companyId,
         });
       }
       res.send(id);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Company not found with id ' + req.params.companyId
+          message: 'Company not found with id ' + req.params.companyId,
         });
       }
       return res.status(500).send({
-        message: 'Error updating company with id ' + req.params.companyId
+        message: 'Error updating company with id ' + req.params.companyId,
       });
     });
 };
@@ -92,22 +95,22 @@ const updateCompany = (req, res) => {
 const deleteCompany = (req, res) => {
   const companyId = req.params.companyId;
   Company.findOneAndRemove({ _id: companyId })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Company not found with id ' + req.params.companyId
+          message: 'Company not found with id ' + req.params.companyId,
         });
       }
       res.send({ message: 'Company deleted successfully!' });
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'Company not found with id ' + req.params.companyId
+          message: 'Company not found with id ' + req.params.companyId,
         });
       }
       return res.status(500).send({
-        message: 'Could not delete company with id ' + req.params.companyId
+        message: 'Could not delete company with id ' + req.params.companyId,
       });
     });
 };

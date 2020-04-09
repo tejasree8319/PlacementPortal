@@ -7,61 +7,67 @@ const jobSchema = new Schema(
   {
     jobProfile: {
       type: String,
-      required: true
+      required: true,
     },
     jobSkills: {
       type: String,
-      required: true
+      required: true,
     },
     companyId: {
       type: ObjectId,
-      ref: 'Company'
+      ref: 'Company',
+      required: true,
     },
     selectedCount: {
       type: Number,
-      default: 0
+      default: 0,
+      required: true,
     },
     jobSelectionProcess: {
-      type: String
+      type: String,
+      required: true,
     },
     jobDescription: {
       type: String,
-      required: true
+      required: true,
     },
     jobEligibility: {
-      type: Number,
-      required: true
+      type: String,
+      required: true,
     },
     jobPackage: {
       type: Number,
-      required: true
+      required: true,
     },
     interviewLocation: {
       type: String,
-      required: true
+      required: true,
     },
     jobLocation: {
-      type: String
+      type: String,
+      required: true,
     },
     jobDate: {
-      type: Date
+      type: Date,
+      required: true,
     },
     // jobDept: {
     //   type: String,
     //   required: true
     // },
     jobType: {
-      type: String
-    }
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
-jobSchema.pre('findOne', function() {
+jobSchema.pre('findOne', function () {
   console.log('entered here');
   // this.populate({ path: 'companyId', select: 'companyId-_id' });
   this.populate({ path: 'companyId' });
 });
-jobSchema.pre('find', function() {
+jobSchema.pre('find', function () {
   this.populate({ path: 'companyId' });
 });
 module.exports = mongoose.model('Job', jobSchema);

@@ -8,23 +8,23 @@ console.log('Execute');
 const getFaculty = (req, res) => {
   const facultyId = req.params.facultyId;
   Faculty.findOne({ facultyId })
-    .then(faculty => {
+    .then((faculty) => {
       if (!faculty) {
         return res.status(404).send({
-          message: 'Faculty not found with id ' + req.params.facultyId
+          message: 'Faculty not found with id ' + req.params.facultyId,
         });
       }
-      console.log(faculty);
+      // console.log(faculty);
       res.send(faculty);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Faculty not found with id ' + req.params.facultyId
+          message: 'Faculty not found with id ' + req.params.facultyId,
         });
       }
       return res.status(500).send({
-        message: 'Error retrieving faculty with id ' + req.params.facultyId
+        message: 'Error retrieving faculty with id ' + req.params.facultyId,
       });
     });
 };
@@ -32,19 +32,19 @@ const getFaculty = (req, res) => {
 const getAllFaculty = (req, res) => {
   // console.log('Faculty List');
   Faculty.find()
-    .then(facultyData => {
+    .then((facultyData) => {
       // console.log(facultyData);
       res.send(facultyData);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message:
-          err.message || 'Some error occurred while retrieving faculty data.'
+          err.message || 'Some error occurred while retrieving faculty data.',
       });
     });
 };
 
-const pick = body =>
+const pick = (body) =>
   _.pick(body, [
     'facultyName',
     'facultyGender',
@@ -55,33 +55,33 @@ const pick = body =>
     'facultyDesignation',
     'facultyQualification',
     'facultyPhoto',
-    'facultyResume'
+    'facultyResume',
   ]);
 
 // Find note and update it with the request body
 const updateFaculty = (req, res) => {
-  console.log('contl');
-  console.log(Object.keys(req.body));
+  // console.log(Object.keys(req.body));
 
   console.log(pick);
   const facultyId = req.params.facultyId;
   Faculty.findOneAndUpdate({ facultyId }, pick(req.body), { new: true })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Faculty not found with id ' + req.params.facultyId
+          message: 'Faculty not found with id ' + req.params.facultyId,
         });
       }
+      console.log(id);
       res.send(id);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Faculty not found with id ' + req.params.facultyId
+          message: 'Faculty not found with id ' + req.params.facultyId,
         });
       }
       return res.status(500).send({
-        message: 'Error updating faculty with id ' + req.params.facultyId
+        message: 'Error updating faculty with id ' + req.params.facultyId,
       });
     });
 };
@@ -89,22 +89,22 @@ const updateFaculty = (req, res) => {
 const deleteFaculty = (req, res) => {
   const facultyId = req.params.facultyId;
   Faculty.findOneAndRemove({ facultyId })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Faculty not found with id ' + req.params.facultyId
+          message: 'Faculty not found with id ' + req.params.facultyId,
         });
       }
       res.send({ message: 'Faculty deleted successfully!' });
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'Faculty not found with id ' + req.params.facultyId
+          message: 'Faculty not found with id ' + req.params.facultyId,
         });
       }
       return res.status(500).send({
-        message: 'Could not delete faculty with id ' + req.params.facultyId
+        message: 'Could not delete faculty with id ' + req.params.facultyId,
       });
     });
 };
@@ -125,7 +125,7 @@ const createFaculty = async (req, res) => {
       facultyQualification: req.body.facultyQualification,
       // facultyAddress: req.body.facultyAddress
       facultyPhoto: req.body.facultyPhoto,
-      facultyResume: req.body.facultyResume
+      facultyResume: req.body.facultyResume,
     });
 
     // Save Note in the database
@@ -135,7 +135,7 @@ const createFaculty = async (req, res) => {
     res.send(data);
   } catch (err) {
     res.status(500).send({
-      message: err.message || 'Some error occurred while creating the Faculty.'
+      message: err.message || 'Some error occurred while creating the Faculty.',
     });
   }
 };
