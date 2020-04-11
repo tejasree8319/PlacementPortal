@@ -59,6 +59,10 @@ const jobSchema = new Schema(
       type: String,
       required: true,
     },
+    jobDesignation: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

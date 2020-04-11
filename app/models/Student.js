@@ -11,63 +11,63 @@ const studentSchema = new Schema(
     },
     studentName: {
       type: String,
-      required: true,
+      // required: true,
     },
     studentEmail: {
       type: String,
       // unique: true
-      required: true,
+      // required: true,
     },
     studentContact: {
       type: Number,
       // unique: true
-      required: true,
+      // required: true,
     },
     studentGender: {
       type: String,
-      required: true,
+      // required: true,
     },
     studentDob: {
       type: Date,
-      required: true,
+      // required: true,
     },
     studentDept: {
       type: String,
-      required: true,
+      // required: true,
     },
     studentTempAddress: {
       type: String,
     },
     studentPermanentAddress: {
       type: String,
-      required: true,
+      // required: true,
     },
     studentBatch: {
       type: String,
-      required: true,
+      // required: true,
     },
     studentSSCMarks: {
       type: Number,
-      required: true,
+      // required: true,
     },
     studentInterMarks: {
       type: Number,
-      required: true,
+      // required: true,
     },
     studentDiplomaMarks: {
       type: Number,
     },
     studentBTechMarks: {
       type: Number,
-      required: true,
+      // required: true,
     },
     studentResume: {
       type: String,
-      required: true,
+      // required: true,
     },
     studentPhoto: {
       type: String,
-      required: true,
+      // required: true,
     },
   },
   { timestamps: true }

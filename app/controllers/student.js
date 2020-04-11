@@ -8,44 +8,59 @@ console.log('Execute');
 const getStudent = (req, res) => {
   const studentId = req.params.studentId;
   Student.findOne({ studentId })
-    .then(student => {
+    .then((student) => {
       if (!student) {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.studentId,
         });
       }
       console.log(student);
       res.send(student);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.studentId,
         });
       }
       return res.status(500).send({
-        message: 'Error retrieving student with id ' + req.params.studentId
+        message: 'Error retrieving student with id ' + req.params.studentId,
       });
     });
 };
 
 const getAllStudents = (req, res) => {
-  //console.log('Student List');
-  Student.find()
+  const studentDept = req.params.studentDept;
+  if (studentDept == undefined) {
+    console.log('Student List');
+    Student.find()
 
-    .then(studentData => {
-      // console.log(studentData);
-      res.send(studentData);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || 'Some error occurred while retrieving student data.'
+      .then((studentData) => {
+        console.log(studentData);
+        res.send(studentData);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message || 'Some error occurred while retrieving student data.',
+        });
       });
-    });
+  } else {
+    Student.find({ studentDept })
+      .then((studentData) => {
+        console.log(studentData);
+        res.send(studentData);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message || 'Some error occurred while retrieving student data.',
+        });
+      });
+  }
 };
 
-const pick = body =>
+const pick = (body) =>
   _.pick(body, [
     'studentName',
     'studentGender',
@@ -61,7 +76,7 @@ const pick = body =>
     'studentDiplomaMarks',
     'studentBTechMarks',
     'studentResume',
-    'studentPhoto'
+    'studentPhoto',
   ]);
 
 // Find note and update it with the request body
@@ -72,22 +87,22 @@ const updateStudent = (req, res) => {
   console.log(pick);
   const studentId = req.params.studentId;
   Student.findOneAndUpdate({ studentId }, pick(req.body), { new: true })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.studentId,
         });
       }
       res.send(id);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.studentId,
         });
       }
       return res.status(500).send({
-        message: 'Error updating student with id ' + req.params.studentId
+        message: 'Error updating student with id ' + req.params.studentId,
       });
     });
 };
@@ -95,22 +110,22 @@ const updateStudent = (req, res) => {
 const deleteStudent = (req, res) => {
   const studentId = req.params.studentId;
   Student.findOneAndRemove({ studentId })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.studentId,
         });
       }
       res.send({ message: 'Student deleted successfully!' });
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'Student not found with id ' + req.params.studentId
+          message: 'Student not found with id ' + req.params.studentId,
         });
       }
       return res.status(500).send({
-        message: 'Could not delete student with id ' + req.params.studentId
+        message: 'Could not delete student with id ' + req.params.studentId,
       });
     });
 };
@@ -140,7 +155,7 @@ const createStudent = async (req, res) => {
       studentDiplomaMarks: req.body.studentDiplomaMarks,
       studentBTechMarks: req.body.studentBTechMarks,
       studentResume: req.body.studentResume,
-      studentPhoto: req.body.studentPhoto
+      studentPhoto: req.body.studentPhoto,
     });
 
     // Save Note in the database
@@ -156,12 +171,12 @@ const createStudent = async (req, res) => {
     res.send(data);
   } catch (err) {
     res.status(500).send({
-      message: err.message || 'Some error occurred while creating the Student.'
+      message: err.message || 'Some error occurred while creating the Student.',
     });
   }
 };
 
-studentRouter.get('/all', getAllStudents);
+studentRouter.get('/all/:studentDept', getAllStudents);
 studentRouter.get('/:studentId', getStudent);
 studentRouter.post('/', createStudent);
 studentRouter.patch('/:studentId', updateStudent);

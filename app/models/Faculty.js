@@ -12,41 +12,41 @@ const facultySchema = new Schema(
     },
     facultyName: {
       type: String,
-      required: true,
+      // required: true,
     },
     facultyEmail: {
       type: String,
-      required: true,
+      // required: true,
       // unique: true
     },
     facultyContact: {
       type: Number,
       //unique: true
-      required: true,
+      // required: true,
     },
     facultyGender: {
       type: String,
-      required: true,
+      // required: true,
     },
     facultyDesignation: {
       type: String,
-      required: true,
+      // required: true,
     },
     facultyExperience: {
       type: Number,
-      required: true,
+      // required: true,
     },
     facultyDept: {
       type: String,
-      required: true,
+      // required: true,
     },
     facultyQualification: {
       type: String,
-      required: true,
+      // required: true,
     },
     facultyPhoto: {
       type: String,
-      required: true,
+      // required: true,
     },
     facultyResume: {
       type: String,

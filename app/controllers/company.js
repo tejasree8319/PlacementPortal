@@ -78,6 +78,7 @@ const updateCompany = (req, res) => {
           message: 'Company not found with id ' + req.params.companyId,
         });
       }
+      console.log(id);
       res.send(id);
     })
     .catch((err) => {

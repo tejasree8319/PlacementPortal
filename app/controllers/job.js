@@ -21,6 +21,7 @@ const createJob = async (req, res) => {
       jobLocation: req.body.jobLocation,
       jobDate: req.body.jobDate,
       jobType: req.body.jobType,
+      jobDesignation: req.body.jobDesignation,
     });
 
     const data = await job.save();
