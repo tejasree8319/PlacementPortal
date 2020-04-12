@@ -69,7 +69,7 @@ const pick = (body) =>
 
 // Find note and update it with the request body
 const updateCompany = (req, res) => {
-  console.log(pick);
+  console.log(req.body);
   const companyId = req.params.companyId;
   Company.findOneAndUpdate({ _id: companyId }, pick(req.body), { new: true })
     .then((id) => {

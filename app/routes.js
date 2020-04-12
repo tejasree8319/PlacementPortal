@@ -12,6 +12,8 @@ var loginRouter = require('./controllers/login');
 var feedbackRouter = require('./controllers/feedback');
 var trainingRouter = require('./controllers/trainings');
 
+console.log('Route');
+
 router.use('/student', studentRouter);
 router.use('/faculty', facultyRouter);
 router.use('/department', departmentRouter);

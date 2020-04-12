@@ -30,18 +30,32 @@ const getFaculty = (req, res) => {
 };
 
 const getAllFaculty = (req, res) => {
-  // console.log('Faculty List');
-  Faculty.find()
-    .then((facultyData) => {
-      // console.log(facultyData);
-      res.send(facultyData);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || 'Some error occurred while retrieving faculty data.',
+  const facultyDept = req.params.facultyDept;
+  if (facultyDept == 'All') {
+    Faculty.find()
+      .then((facultyData) => {
+        // console.log(facultyData);
+        res.send(facultyData);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message || 'Some error occurred while retrieving faculty data.',
+        });
       });
-    });
+  } else {
+    Faculty.find({ facultyDept })
+      .then((facultyData) => {
+        console.log(facultyData);
+        res.send(facultyData);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message || 'Some error occurred while retrieving faculty data.',
+        });
+      });
+  }
 };
 
 const pick = (body) =>
@@ -60,9 +74,7 @@ const pick = (body) =>
 
 // Find note and update it with the request body
 const updateFaculty = (req, res) => {
-  // console.log(Object.keys(req.body));
-
-  console.log(pick);
+  console.log(req.body);
   const facultyId = req.params.facultyId;
   Faculty.findOneAndUpdate({ facultyId }, pick(req.body), { new: true })
     .then((id) => {
@@ -140,7 +152,7 @@ const createFaculty = async (req, res) => {
   }
 };
 
-facultyRouter.get('/all', getAllFaculty);
+facultyRouter.get('/all/:facultyDept', getAllFaculty);
 facultyRouter.get('/:facultyId', getFaculty);
 facultyRouter.post('/', createFaculty);
 facultyRouter.patch('/:facultyId', updateFaculty);

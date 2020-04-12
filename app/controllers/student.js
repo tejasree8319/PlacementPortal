@@ -30,8 +30,9 @@ const getStudent = (req, res) => {
 };
 
 const getAllStudents = (req, res) => {
+  console.log('Dept');
   const studentDept = req.params.studentDept;
-  if (studentDept == undefined) {
+  if (studentDept == 'All') {
     console.log('Student List');
     Student.find()
 
