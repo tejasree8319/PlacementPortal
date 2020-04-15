@@ -12,6 +12,7 @@ const createCompany = async (req, res) => {
       companyLogo: req.body.companyLogo,
       companyDescription: req.body.companyDescription,
       companySector: req.body.companySector,
+      companyMaterial: req.body.companyMaterial,
     });
 
     const data = await company.save();
@@ -65,6 +66,7 @@ const pick = (body) =>
     'companyLogo',
     'companyDescription',
     'companySector',
+    'companyMaterial',
   ]);
 
 // Find note and update it with the request body

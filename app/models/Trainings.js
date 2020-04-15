@@ -5,21 +5,22 @@ const ObjectId = Schema.ObjectId;
 const TrainingSchema = new Schema(
   {
     studentId: {
-      type: ObjectId,
-      ref: 'Student'
+      type: String,
+      required: true,
     },
     trainingType: {
-      type: String
-    }
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
-TrainingSchema.pre('findOne', function() {
-  console.log('entered here');
-  this.populate({ path: 'studentId' });
-});
-TrainingSchema.pre('find', function() {
-  this.populate({ path: 'studentId' });
-});
+// TrainingSchema.pre('findOne', function () {
+//   console.log('entered here');
+//   this.populate({ path: 'studentId' });
+// });
+// TrainingSchema.pre('find', function () {
+//   this.populate({ path: 'studentId' });
+// });
 
 module.exports = mongoose.model('Trainings', TrainingSchema);

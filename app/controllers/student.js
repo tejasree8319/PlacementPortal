@@ -82,10 +82,6 @@ const pick = (body) =>
 
 // Find note and update it with the request body
 const updateStudent = (req, res) => {
-  console.log('contl');
-  console.log(Object.keys(req.body));
-
-  console.log(pick);
   const studentId = req.params.studentId;
   Student.findOneAndUpdate({ studentId }, pick(req.body), { new: true })
     .then((id) => {

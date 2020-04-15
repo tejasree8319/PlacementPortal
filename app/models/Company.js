@@ -22,6 +22,9 @@ const companySchema = new Schema(
       type: String,
       required: true,
     },
+    companyMaterial: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

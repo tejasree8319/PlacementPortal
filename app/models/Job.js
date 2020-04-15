@@ -21,7 +21,7 @@ const jobSchema = new Schema(
     selectedCount: {
       type: Number,
       default: 0,
-      required: true,
+      // required: true,
     },
     jobSelectionProcess: {
       type: String,

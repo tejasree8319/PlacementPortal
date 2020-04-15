@@ -11,7 +11,7 @@ const createStudentFeedback = async (req, res) => {
     const studentFeedback = new StudentFeedback({
       studentId: req.body.studentId,
       jobId: req.body.jobId,
-      studentFeedback: req.body.studentFeedback
+      studentFeedback: req.body.studentFeedback,
     });
     console.log(studentFeedback);
 
@@ -20,7 +20,8 @@ const createStudentFeedback = async (req, res) => {
   } catch (err) {
     res.status(500).send({
       message:
-        err.message || 'Some error occurred while creating the StudentFeedback.'
+        err.message ||
+        'Some error occurred while creating the StudentFeedback.',
     });
   }
 };
@@ -28,69 +29,82 @@ const createStudentFeedback = async (req, res) => {
 const getStudentFeedback = (req, res) => {
   const feedbackId = req.params.feedbackId;
   StudentFeedback.findOne({ _id: feedbackId })
-    .then(student => {
+    .then((student) => {
       if (!student) {
         return res.status(404).send({
-          message: 'Feedback not found with id ' + req.params.feedbackId
+          message: 'Feedback not found with id ' + req.params.feedbackId,
         });
       }
       res.send(student);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Feedback not found with id ' + req.params.feedbackId
+          message: 'Feedback not found with id ' + req.params.feedbackId,
         });
       }
       return res.status(500).send({
-        message: 'Error retrieving feedback with id ' + req.params.feedbackId
+        message: 'Error retrieving feedback with id ' + req.params.feedbackId,
       });
     });
 };
 
 const getAllStudentsFeedback = (req, res) => {
-  StudentFeedback.find()
-    .then(studentData => {
-      res.send(studentData);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message ||
-          'Some error occurred while retrieving student feedback.'
+  console.log('jobId');
+  const jobId = req.params.jobId;
+  if (jobId == 'All') {
+    StudentFeedback.find()
+      .then((studentData) => {
+        res.send(studentData);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message ||
+            'Some error occurred while retrieving student feedback.',
+        });
       });
-    });
+  } else {
+    console.log(jobId);
+    StudentFeedback.find({ jobId })
+      .then((studentData) => {
+        res.send(studentData);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message ||
+            'Some error occurred while retrieving student feedback.',
+        });
+      });
+  }
 };
 
-const pick = body => _.pick(body, ['studentFeedback', 'jobId']);
+const pick = (body) => _.pick(body, ['studentFeedback', 'jobId']);
 
 // Find note and update it with the request body
 const updateStudentFeedback = (req, res) => {
-  console.log('contl');
-  console.log(Object.keys(req.body));
-
-  console.log(pick);
   const feedbackId = req.params.feedbackId;
   StudentFeedback.findOneAndUpdate({ _id: feedbackId }, pick(req.body), {
-    new: true
+    new: true,
   })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Feedback not found with id ' + req.params.feedbackId
+          message: 'Feedback not found with id ' + req.params.feedbackId,
         });
       }
       res.send(id);
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Feedback not found with id ' + req.params.feedbackId
+          message: 'Feedback not found with id ' + req.params.feedbackId,
         });
       }
       return res.status(500).send({
         message:
-          'Error updating studentfeedback with id ' + req.params.feedbackId
+          'Error updating studentfeedback with id ' + req.params.feedbackId,
       });
     });
 };
@@ -98,28 +112,28 @@ const updateStudentFeedback = (req, res) => {
 const deleteStudentFeedback = (req, res) => {
   const feedbackId = req.params.feedbackId;
   StudentFeedback.findOneAndRemove({ _id: feedbackId })
-    .then(id => {
+    .then((id) => {
       if (!id) {
         return res.status(404).send({
-          message: 'Feedback not found with id ' + req.params.feedbackId
+          message: 'Feedback not found with id ' + req.params.feedbackId,
         });
       }
       res.send({ message: 'StudentFeedback deleted successfully!' });
     })
-    .catch(err => {
+    .catch((err) => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'StudentFeedback not found with id ' + req.params.feedbackId
+          message: 'StudentFeedback not found with id ' + req.params.feedbackId,
         });
       }
       return res.status(500).send({
         message:
-          'Could not delete studentfeedback with id ' + req.params.feedbackId
+          'Could not delete studentfeedback with id ' + req.params.feedbackId,
       });
     });
 };
 
-feedbackRouter.get('/all', getAllStudentsFeedback);
+feedbackRouter.get('/all/:jobId', getAllStudentsFeedback);
 feedbackRouter.get('/:feedbackId', getStudentFeedback);
 feedbackRouter.post('/', createStudentFeedback);
 feedbackRouter.patch('/:feedbackId', updateStudentFeedback);
