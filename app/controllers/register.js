@@ -30,8 +30,9 @@ const createUser = async (req, res) => {
       });
       const id = await faculty.save();
     }
-    //console.log(userId);
-    res.send({ userId, userType, token });
+    console.log(data);
+    var _id = data._id;
+    res.send({ _id, userId, userType, token });
   } catch (err) {
     res.status(500).send({
       message:

@@ -11,6 +11,7 @@ var placementRouter = require('./controllers/placement');
 var loginRouter = require('./controllers/login');
 var feedbackRouter = require('./controllers/feedback');
 var trainingRouter = require('./controllers/trainings');
+var emailRouter = require('./controllers/email');
 
 console.log('Route');
 
@@ -24,5 +25,6 @@ router.use('/placement', placementRouter);
 router.use('/login', loginRouter);
 router.use('/feedback', feedbackRouter);
 router.use('/trainings', trainingRouter);
+router.use('/email', emailRouter);
 
 module.exports = router;

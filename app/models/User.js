@@ -9,7 +9,7 @@ const userSchema = new Schema(
   {
     userId: { type: String, unique: true },
     password: { type: String, required: true },
-    userType: { type: String, required: true }
+    userType: { type: String, required: true },
   },
   { timestamps: true }
 );
@@ -21,14 +21,14 @@ userSchema.methods = {
       { _id: this._id.toHexString(), userId: this.userId },
       'tokencode',
       {
-        expiresIn: '30d'
+        expiresIn: '30d',
       }
     );
 
     await this.updateOne({
       $push: {
-        tokens: token
-      }
+        tokens: token,
+      },
     });
     return token;
   },
@@ -37,9 +37,9 @@ userSchema.methods = {
       'password',
       '__v',
       'createdAt',
-      'updatedAt'
+      'updatedAt',
     ]);
-  }
+  },
 };
 
 userSchema.statics = {
@@ -53,13 +53,13 @@ userSchema.statics = {
       return user;
     }
     throw 'Incorrect Password';
-  }
+  },
 };
 
 //hashing a password before saving it to the database
 console.log('Hash');
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
   if (this.isModified('password')) {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(this.password, salt, (err, hash) => {
