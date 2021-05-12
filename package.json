@@ -15,7 +15,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.2",
-    "nodemailer": "^6.4.5"
+    "nodemailer": "^6.4.16"
   },
   "repository": "https://github.com/tejasree8319/PlacementPortal.git"
 }
